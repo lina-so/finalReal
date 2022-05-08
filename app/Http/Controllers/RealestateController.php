@@ -11,12 +11,23 @@ use File;
 use Carbon\Carbon;
 use App\Models\City;
 use DB;
+use App\Models\Favoraite;
 
 // namespace App\Http\Controllers\Carbon;
 // use Illuminate\Support\Facades\Storage;
 
 class RealestateController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -119,8 +130,7 @@ class RealestateController extends Controller
      */
     public function show(Realestate $realestate)
     {
-
-        return view('show',compact('realestate'));
+        return view('show',compact('realestate','realFav'));
     }
 
     /**

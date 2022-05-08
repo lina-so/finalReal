@@ -26,7 +26,7 @@ return[
         "Area"=> "المساحة",
         "price"=> "السعر",
         "add realestate"=>"اضافة عقار",
-        "show your realestate"=>" عقاراتك",
+        "showYourRealestate"=>" عقاراتك",
         "Your Favoraite"=>"المفضلة",
         "villa"=>"فيلا",
         "add to favoraite"=>"إضافة للمفضلة",
@@ -67,6 +67,7 @@ return[
     'English'=>'الاجنبية',
     'Arabic'=>'العربية',
     'Language'=>'اللغة',
+    "show"=>"عرض جميع العقارات",
 
     // 1_404.blade.php
     "mistyped" =>

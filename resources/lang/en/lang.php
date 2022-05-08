@@ -24,7 +24,7 @@ return[
     "Area"=> "Area",
     "price"=> "Price",
     "add realestate"=>"Add Realestate",
-    "show your realestate"=>"Show Your Realestate",
+    "showYourRealestate"=>"Your Realestate",
     "Your Favoraite"=>"Your Favoraite",
     "villa"=>"Villa",
     "add to favoraite"=>"Add To Favoraite",
@@ -52,6 +52,7 @@ return[
     "Send E-mail"=>"Send E-mail",
     "purpose"=>"purpose",
     "city"=>"city",
+    "show"=>"show all Realestates",
     
     "Ownership"=>"Ownership",
     "Type"=>"Type",

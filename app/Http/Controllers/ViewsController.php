@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Models\Realestate;
+use Storage;
+use File;
+use Carbon\Carbon;
+use App\Models\City;
+
 
 class ViewsController extends Controller
 {
@@ -15,6 +20,12 @@ class ViewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function index()
+    {
+        $reals = Realestate::latest()->paginate(8); 
+        return view('show' , compact(['reals']));
+    }
+
     public function yourReal($id)
     {
         $user=Auth::user();

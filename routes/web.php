@@ -25,13 +25,28 @@ use App\Http\Controllers\LocalizationController;
   //     return view('auth/register');
   // })->name('register');
 
+
+//dashboard Admin
+Route::middleware(['auth','isAdmin'])->group(function (){
+  Route::get('/home', [App\Http\Controllers\AdminController::class, 'showDashboard'])->name('dashboard');
+});
+
+
+
+  Route::get('/', function () {
+    return view('welcome');
+});
+
   
   Route::get("/search-real", [App\Http\Controllers\SearchController::class, 'search'])->name('search');
   Route::get("/search", [App\Http\Controllers\SearchController::class, 'result'])->name('result');
 
+//count real favoraite
+Route::get("/countRealFav/{id}", [App\Http\Controllers\FavoraiteController::class, 'numberReaFavoraite'])->name('edit-realestate');
 
 //show Route
-Route::get("/show", [App\Http\Controllers\RealestateController::class, 'index'])->name('show');
+Route::get("/show", [App\Http\Controllers\ViewsController::class, 'index'])->name('show');
+
 
 
 Auth::routes();
@@ -86,7 +101,7 @@ Route::delete("/deletefav/{id}", [App\Http\Controllers\FavoraiteController::clas
 
 
 /* view composer */
-View::composer(['*'],function($view)
+View::composer(['*','layouts.app'],function($view)
 {
   $user = Auth::user();
   $view->with('user',$user);
@@ -98,12 +113,6 @@ Route::get('storage/app/images/loloo_4_07-04-22_15_50_04/{filename}', 'ViewsCont
 
 
 
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 //chartjs
 Route::get('/test2', [ App\Http\Controllers\PostController::class, 'getMonthlyPostData']);
 
@@ -111,13 +120,7 @@ Route::get('/test2', [ App\Http\Controllers\PostController::class, 'getMonthlyPo
 Route::get("locale/{lange}", [LocalizationController::class, 'setLang']);
 
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/insert',function(){
-    return view ('insert');
-});
+// Auth::routes();
 
 
 Route::get('/{page}', [AdminController::class, 'index']);

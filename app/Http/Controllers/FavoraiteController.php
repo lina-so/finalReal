@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\DB;
 
 class FavoraiteController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +57,14 @@ class FavoraiteController extends Controller
         $like->save();
 
         return redirect()->route('show')->with('mess','You Liked This Property');
+    }
+
+    public function numberReaFavoraite($id)
+    {
+        $realFav=DB::select('select count(real_id) from favoraites where real_id = ?',[$id]);
+        // $realFav=DB::select('select count(real_id) from favoraites where real_id = ?',[$id]);
+        // dd($realFav);
+
     }
 
     /**

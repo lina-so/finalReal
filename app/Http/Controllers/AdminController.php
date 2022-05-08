@@ -24,6 +24,9 @@ class AdminController extends Controller
      //   return view($id);
     }
 
+    public function showDashboard(){
+        return view('home');
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Realestate;
 use App\Models\City;
+use App\Models\Favoraite;
 use DB;
 
 class VarComposer

@@ -35,6 +35,6 @@ class AppServiceProvider extends ServiceProvider
         // });
 
         //3
-        View::composer(['yourReal','layouts.app','edit','AddDesire'],'App\Http\ViewComposers\VarComposer');
+        View::composer(['yourReal','layouts.app','edit','AddDesire','show'],'App\Http\ViewComposers\VarComposer');
     }
 }
