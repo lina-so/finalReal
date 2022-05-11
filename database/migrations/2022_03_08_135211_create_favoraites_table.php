@@ -16,6 +16,7 @@ class CreateFavoraitesTable extends Migration
         Schema::create('favoraites', function (Blueprint $table) {
             // $table->id();
             $table->timestamps();
+            $table->softDeletes();
             $table->boolean('is_favoraite');
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('real_id')->unsigned();

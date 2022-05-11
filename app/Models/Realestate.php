@@ -4,9 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Image;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 class Realestate extends Model
 {
 
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     protected $fillable = [
         'address', 'floor','area','price','number_of_rooms',
         'number_of_path_rooms','cover','image','image_path',

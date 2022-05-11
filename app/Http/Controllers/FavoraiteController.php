@@ -7,6 +7,8 @@ use App\Models\Realestate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\Session;
+
 
 class FavoraiteController extends Controller
 {
@@ -48,24 +50,36 @@ class FavoraiteController extends Controller
      */
     public function like($id)
     {
+
         $user_id=Auth::id();
         $real_id=$id;
-        $like= new Favoraite();
-        $like->user_id=$user_id;
-        $like->real_id=$real_id;
-        $like->is_favoraite=1;
-        $like->save();
+        $is_fav=DB::select('select is_favoraite from favoraites where real_id = ?',[$id]);
+    
+        $found = Favoraite::where('user_id', $user_id)->where('real_id', $real_id)->count();
+        // dd($is_fav);
+    
+        if($found == 0) {
+        
+            $like= new Favoraite();
+            $like->user_id=$user_id;
+            $like->real_id=$real_id;
+            $like->is_favoraite=1;
+            $like->save();
 
-        return redirect()->route('show')->with('mess','You Liked This Property');
+            return redirect()->route('show')->with('mess','You Liked This Property ');
+        }
+        else {
+            return redirect()->back()->with('mess', 'This Property is exist in your Favoraite');   
+        }
     }
 
-    public function numberReaFavoraite($id)
-    {
-        $realFav=DB::select('select count(real_id) from favoraites where real_id = ?',[$id]);
-        // $realFav=DB::select('select count(real_id) from favoraites where real_id = ?',[$id]);
-        // dd($realFav);
+    // public function numberReaFavoraite($id)
+    // {
+    //     $realFav=DB::select('select count(real_id) from favoraites where real_id = ?',[$id]);
+    //     // $realFav=DB::select('select count(real_id) from favoraites where real_id = ?',[$id]);
+    //     // dd($realFav);
 
-    }
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -124,9 +138,14 @@ class FavoraiteController extends Controller
     {
         // $favoraite=Favoraite::find($id);
         $user_id=Auth::id();
-        $favoraite=DB::delete('delete from favoraites where real_id = ? and user_id = ?',[$id , $user_id]);
-        // dd($user_id);
-        // $favoraite->delete();
+        // $favoraite=DB::delete('delete from favoraites where real_id = ? and user_id = ?',[$id , $user_id]);
+
+       $fav= DB::table('favoraites')
+        ->where('user_id','=', $user_id)
+        ->where('real_id','=', $id)
+        ->update(['deleted_at' => now()]);
+
+        // $fav->delete();
         return redirect()->route('show')->with('success','property deleted successfully');
     }
 }

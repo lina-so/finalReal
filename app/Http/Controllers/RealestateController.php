@@ -33,10 +33,35 @@ class RealestateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    // MariaDB [realtest]> select count(*),real_id from favoraites group by real_id order by real_id  desc;
+    // +----------+---------+
+    // | count(*) | real_id |
+    // +----------+---------+
+    // |        3 |      13 |
+    // |        2 |      12 |
+    // |        1 |      11 |
+    // |        2 |      10 |
+    // +----------+---------+
+    // 4 rows in set (0.001 sec)
+
+     //select count(*),real_id from favoraites group by real_id order by real_id  desc;
     public function index()
     {
+        $favCount=DB::select('select count(*) from favoraites group by real_id order by real_id desc');
+
+        // dd($favCount);
+        
+        // $marginUserProduct= DB::table('projects as pj')
+        // ->join('products as pd', 'pj.product_id', '=', 'pd.id')
+        // ->where('pj.status','success')
+        // ->select(DB::raw('(pj.Qty*pj.pp)-pj.sp  as  margin'))
+        // ->groupBy('pj.customer_id')
+        // ->get();
+
         $reals = Realestate::latest()->paginate(8); 
-        return view('show' , compact(['reals']));
+        return view('show' , compact(['reals','favCount']));
     }
 
     /**

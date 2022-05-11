@@ -37,9 +37,10 @@ Route::middleware(['auth','isAdmin'])->group(function (){
     return view('welcome');
 });
 
+//search route
   
-  Route::get("/search-real", [App\Http\Controllers\SearchController::class, 'search'])->name('search');
-  Route::get("/search", [App\Http\Controllers\SearchController::class, 'result'])->name('result');
+Route::get("/search-real", [App\Http\Controllers\SearchController::class, 'search'])->name('search');
+Route::get("/search", [App\Http\Controllers\SearchController::class, 'result'])->name('result');
 
 //count real favoraite
 Route::get("/countRealFav/{id}", [App\Http\Controllers\FavoraiteController::class, 'numberReaFavoraite'])->name('edit-realestate');

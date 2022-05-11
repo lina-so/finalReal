@@ -20,6 +20,7 @@
             @endcan
 @section('content')
 
+
     @foreach($reals as $real)
             <div class="container1 item">
                 <div class="listing-item">
@@ -37,7 +38,7 @@
                         <li><i class="fa fa-star-o"></i></li>
                         <li> <a href="{{url('liked/'.$real->id.'/')}}" class="addToFavoraite"><i data-product-id="{{$real->id}}"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" color="yellow">
                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>      
-                            </svg>    15
+                            </svg>  15
                         </a></li>
                     </ul>
                     <span class="price"><div class="icon"><img src="images/listing-icon-01.png" alt=""></div> @lang('lang.price') : ${{$real->price}} </span>

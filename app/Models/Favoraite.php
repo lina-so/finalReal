@@ -4,12 +4,15 @@ namespace App\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Realestate;
 use App\User;
 
 class Favoraite extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
     protected $table = 'favoraites';
     protected $fillable =[
         'user_id',

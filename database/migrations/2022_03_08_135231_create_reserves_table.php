@@ -18,6 +18,8 @@ class CreateReservesTable extends Migration
             // $table->integer('period');
             $table->boolean('is_reserve')->default(0);
             $table->timestamps();
+            $table->softDeletes();
+
 
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('real_id')->unsigned();

@@ -33,7 +33,7 @@ class CreateRealestatesTable extends Migration
             $table->text('cover');
             $table->text('image');
             $table->string('image_path');
-    
+            $table->softDeletes();
             $table->timestamps();
 
 
