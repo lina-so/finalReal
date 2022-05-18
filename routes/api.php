@@ -15,8 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+     return $request->user();
+ });
 
-Route::post("login",[App\Http\Controllers\UserController::class,'index']);
+//Route::post("login",[App\Http\Controllers\UserController::class,'index']);
+
+//-------------------------------anas-------------------------------------------------------------
+Route::post('/login', 'App\Http\Controllers\API\AuthController@login');
+Route::post('/register', 'App\Http\Controllers\API\AuthController@register');
+
+Route::middleware('auth:sanctum')->group( function (){
+
+    Route::post('/Add', 'App\Http\Controllers\API\RealestateController@store');
+    Route::get('/Add', 'App\Http\Controllers\API\RealestateController@cities');
+    Route::get('/show', 'App\Http\Controllers\API\RealestateController@show');
+    Route::put('/edit/{id}', 'App\Http\Controllers\API\RealestateController@update');
+    Route::get('/details/{id}', 'App\Http\Controllers\API\RealestateController@details');
+    Route::get('/yourReal/{id}', 'App\Http\Controllers\API\RealestateController@yourReal');
+    Route::delete('/delete/{id}', 'App\Http\Controllers\API\RealestateController@destroy');
+
+
+});

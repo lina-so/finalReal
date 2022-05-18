@@ -43,7 +43,7 @@ Route::get("/search-real", [App\Http\Controllers\SearchController::class, 'searc
 Route::get("/search", [App\Http\Controllers\SearchController::class, 'result'])->name('result');
 
 //count real favoraite
-Route::get("/countRealFav/{id}", [App\Http\Controllers\FavoraiteController::class, 'numberReaFavoraite'])->name('edit-realestate');
+// Route::get("/countRealFav/{id}", [App\Http\Controllers\FavoraiteController::class, 'numberReaFavoraite'])->name('edit-realestate');
 
 //show Route
 Route::get("/show", [App\Http\Controllers\ViewsController::class, 'index'])->name('show');
@@ -102,7 +102,7 @@ Route::delete("/deletefav/{id}", [App\Http\Controllers\FavoraiteController::clas
 
 
 /* view composer */
-View::composer(['*','layouts.app'],function($view)
+View::composer(['*','layouts.app','details'],function($view)
 {
   $user = Auth::user();
   $view->with('user',$user);
@@ -110,12 +110,11 @@ View::composer(['*','layouts.app'],function($view)
 
 
 //display image store
-Route::get('storage/app/images/loloo_4_07-04-22_15_50_04/{filename}', 'ViewsControllers@getPubliclyStorgeFile')->name('displayImage');
-
+// Route::get('storage/app/images/loloo_4_07-04-22_15_50_04/{filename}', 'ViewsControllers@getPubliclyStorgeFile')->name('displayImage');
 
 
 //chartjs
-Route::get('/test2', [ App\Http\Controllers\PostController::class, 'getMonthlyPostData']);
+// Route::get('/test2', [ App\Http\Controllers\PostController::class, 'getMonthlyPostData']);
 
 //Localization Route
 Route::get("locale/{lange}", [LocalizationController::class, 'setLang']);
@@ -124,7 +123,7 @@ Route::get("locale/{lange}", [LocalizationController::class, 'setLang']);
 // Auth::routes();
 
 
-Route::get('/{page}', [AdminController::class, 'index']);
+// Route::get('/{page}', [AdminController::class, 'index']);
 
 
 

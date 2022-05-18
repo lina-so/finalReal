@@ -22,8 +22,16 @@ class ViewsController extends Controller
      */
     public function index()
     {
+        $realFav = DB::table('realestates')
+        ->join('favoraites', 'favoraites.real_id', '=', 'realestates.id')
+        ->select(DB::raw('count(favoraites.real_id) as realfav'))
+        ->groupBy('favoraites.real_id')
+        ->get(); 
+        // dd($realFav);
+
         $reals = Realestate::latest()->paginate(8); 
-        return view('show' , compact(['reals']));
+        // dd($realFav);
+        return view('show' , compact('realFav','reals'));
     }
 
     public function yourReal($id)

@@ -30,7 +30,7 @@
                     </div>
                     <div class="agent-info">
                         <h3>@lang('lang.Contact Listing Agent')</h3>
-                        <i></i><p>{{$user->email}}</p>
+                        <i></i><p>{{Auth::user()->email}}</p>
                          <a href=""><button>@lang('lang.Send E-mail')</button></a>
                     </div>
                 </div>
