@@ -82,6 +82,7 @@
                         </tbody>
                     </table>
                 </div>
+                
             </div>
 
  @include('not-logged')

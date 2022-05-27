@@ -7,9 +7,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Models\Realestate;
+
 
 class ReserveController extends Controller
 {
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -31,6 +43,10 @@ class ReserveController extends Controller
      */
     public function reserve($id)
     {
+        // $reals=DB::select('select status from realestates where id = ?', [$id]);
+
+        $reals = DB::Table('realestates')->select('status','id')->where('id',$id)->get();  
+
         $user_id=Auth::id();
         $real_id=$id;
         $reserve= new Reserve;
@@ -39,6 +55,15 @@ class ReserveController extends Controller
         $reserve->real_id=$real_id;
         $reserve->save();
 
+        $days=4;
+        $dateReserve=$reserve->created_at->addDays($days)->format('d-m-Y');
+        
+
+        $pend="pending";
+        DB::update('update realestates set status = ? where id = ?',[$pend,$id]);
+
+        $status=$reals;
+        dd($reals);
         // $date = Carbon::createFromFormat('Y.m.d', $reserve->created_at);
         // $daysToAdd = 5;
         // $date = $date->addDays($daysToAdd);
@@ -46,7 +71,7 @@ class ReserveController extends Controller
         // dd($reserve->created_at);
 
 
-        return redirect()->route('show')->with('mess','The property has been successfully Reserved, and now you have 4 days before the Reserving period ends');
+        // return redirect()->route('show')->with('mess','The property has been successfully Reserved, and now you have 4 days before the Reserving period ends');
     }
 
     /**
