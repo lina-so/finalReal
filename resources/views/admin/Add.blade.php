@@ -4,13 +4,8 @@
 
 @section('content')
 
-<div class="container2">
-        <div class="header-content">
-            <!-- <p>Active Listings +1,500 Over</p> -->
-            <h1>@lang('lang.Finds Nearby Places & Things')</h1>
-            <button><a href="">@lang('lang.Search Now')</a></button>
-        </div>
-    </div>
+<div class="container_1">
+      
 
     <div class="section1">
 		<div class="color"></div>
@@ -23,7 +18,7 @@
 			<div class="square" style="--i: 3;"></div>
 			<div class="square" style="--i: 4;"></div> -->
 
-			<div class="container2">
+			<div class="container_1">
 				<div class="form1">
 					<h2>@lang('lang.add realestate')</h2>
 					<form  action="/Add" method="POST" enctype="multipart/form-data">

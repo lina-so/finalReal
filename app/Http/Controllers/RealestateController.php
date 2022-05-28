@@ -11,6 +11,8 @@ use Storage;
 use File;
 use Carbon\Carbon;
 use App\Models\City;
+use App\Models\Reserve;
+
 
 
 // namespace App\Http\Controllers\Carbon;
@@ -106,8 +108,16 @@ class RealestateController extends Controller
         }
 
         $real->image_path=$des;
-
+       
         $real->save();
+
+        // $reserve= new Reserve;
+        // if($reserve->is_reserve=1)
+        // {
+        //    $real->end_r_date=$reserve->created_at->addDays('4')->format('d-m-Y');
+        // }
+        // $real->end_r_date;
+
         return redirect()->route('show');
 
     }

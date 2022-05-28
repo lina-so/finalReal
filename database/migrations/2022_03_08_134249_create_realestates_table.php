@@ -35,6 +35,7 @@ class CreateRealestatesTable extends Migration
             $table->string('image_path');
             $table->enum('status', ["failed" ,"success","pending" ])->default('failed');
             $table->softDeletes();
+            // $table->date('end_r_date')->nullable();
             $table->timestamps();
 
 
