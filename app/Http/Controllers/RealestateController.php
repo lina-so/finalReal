@@ -72,42 +72,45 @@ class RealestateController extends Controller
          $time = Carbon::now();
 
         $format_time=$time->format('d-m-y').'_'.$time->format('H').'_'.$time->format('i').'_'.$time->format('m');
-        $des='/images/'.Auth::user()->name.'_'.Auth::id().'_'.$format_time;
+        $des=Auth::user()->name.'_'.Auth::id().'_'.$format_time;
 
          //process cover image
 
         if($request->hasFile("cover"))
         {
             $file=$request->file("cover");
-            // $image = Realestate::where('user_id', '=', Auth::user()->id)->get();
-            $image_name='cover' .'.'.$file->getClientOriginalExtension();
+           
+            $image_name='cover'.'.'.'jpg';
+
             $real->cover = $image_name;
 
-            $file->storeAs($des, $image_name);
+            $file->move('images/'.$des,$image_name);
+
         }
 
+        $i=1;
+        $c=0;
 
         if($request->hasFile("image"))
         {
             $file=$request->file("image");
             foreach($file as $files)
             {
-                $filename = $files->getClientOriginalName();
+                $filename =  $i++ .'.'. 'jpg';
 
-                $image_name = time().'.'.$files->getClientOriginalExtension();
+                $image_name = $i+1 .'.'. 'jpg';
                 $request['user_id']=$real->id;
                 $request['image']=$image_name;
                 $real->image = $image_name;
+                $c++;
 
-                 // $files->storeAs('/images/', $filename);
-
-                $files->storeAs($des,$filename);
-
-
+                 $files->move('images/'.$des,$filename);
             }
         }
 
+        // dd($c);
         $real->image_path=$des;
+        $real->countF=$c;
        
         $real->save();
 

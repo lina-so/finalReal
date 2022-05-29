@@ -28,7 +28,7 @@
             <div class="container1 item">
                 <div class="listing-item">
                     <div class="left-image">
-                    <img src="{{asset('storage/٢٠٢١٠٤٠١_١٦٥٤٣١.jpg')}}" alt="">
+                    <img src="{{asset('images/'.$real->image_path.'/cover.jpg')}}" alt="">
                     </div>
                     <div class="right-content align-self-center">
                     <a href="#"><h4>{{ __('lang.' . $real->property_type) }}</h4></a>

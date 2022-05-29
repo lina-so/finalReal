@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
-
+@php
+    $i=0;
+    
+@endphp
 @section('content')
 
             <div class="container2">
@@ -24,7 +27,12 @@
 
                 <div class="content-body">
                     <div class="images">
-                        <img src="" alt="">
+                    @for ($i = 0; $i <=$details[0]->countF; $i++)
+                    <img src="{{asset('images/'.$details[0]->image_path.'/'.$i.'.jpg')}}" alt="">
+
+                        <p>The current value is {{ $i }}.</p>
+                    @endfor
+                      
                         <a href="{{url('liked/'.$details[0]->id.'/')}}" class="addToFavoraite"><i class="fa fa-heart" data-product-id="{{$details[0]->id}}"></i>@lang('lang.add to favoraite')</a>
                        
                     </div>

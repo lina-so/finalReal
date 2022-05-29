@@ -10,8 +10,8 @@ body
 	/*background: linear-gradient(to right, #ff359b,#00d2ff,#fffd87);*/
 	/* background: linear-gradient(to right, #e06fa8,#79cadc,#f8f569); */
 	background: linear-gradient(to right, #462446,#b05f6d,#eb6b56,#ffc153);
-	background-repeat: no-repeat;
-	height: 10000px;
+	background-repeat: repeat;
+	height: auto;
 	position: relative;
 	color: #fff;
 }
@@ -200,4 +200,197 @@ h6,span{
 .item .right-content .main-white-button .content:nth-child(2)
 {
   background-color:#e899e4;
+}
+
+
+
+/*  Add real page  */
+.container{
+  position: relative;
+}
+
+.box
+{
+	position: relative;
+}
+.box .square
+{
+	position: absolute;
+	backdrop-filter: blur(5px);
+	box-shadow: 0 25px 45px rgba(255,255,255, 0.1);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	animation: animate 10s linear infinite;
+	animation-delay: calc(-1s * var(--i));
+}
+p{
+	text-align: center;
+    color: #fffafa;
+}
+@keyframes animate
+{
+	0%,100%
+	{
+		transform: translateY(-40px);
+	}
+	50%
+	{
+		transform: translateY(40px);
+	}
+}
+.box .square:nth-child(1)
+{
+  top: 351px;
+  right: 288px;
+  width: 100px;
+  height: 100px;
+}
+.box .square:nth-child(2)
+{
+  top: 791px;
+  left: 249px;
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+}
+.box .square:nth-child(3)
+{
+  bottom: 83px;
+  /* right: -60px; */
+  right: 309px;
+  width: 80px;
+  height: 80px;
+}
+.box .square:nth-child(4)
+{
+  bottom: -80px;
+  left: 299px;
+  width: 50px;
+  height: 50px;
+
+}
+.box .square:nth-child(5)
+{
+	top: -80px;
+	/* left: 1400px; */
+  left: 943px;
+	width: 60px;
+	height: 60px;
+}
+.container_1 {
+  /* position: relative;
+  width: 52%; */
+  height: auto;
+    padding: 4%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 25px 45px rgb(255 255 255 / 10%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    width: 45%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    margin-top: 28%;
+}
+/* .h2 {
+  margin: -107px 5px 37px 5px;
+} */
+
+.form .inputBox
+{
+	width: 100%;
+	margin-top: 20px;
+	/* line-height: 30px; */
+	position: relative;
+}
+.form .inputBox input,.form .inputBox select{
+	width: 100%;
+	background: rgba(255, 255, 255, 0.2);
+	border: none;
+	outline: none;
+	padding: 10px 20px;
+	border-radius: 35px;
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	font-size: 16px;
+	letter-spacing: 1px;
+	color: #fff;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.inputBox select option{
+  color: #666;
+}
+
+.form .inputBox .btn 
+{
+	padding: 8px;
+    /* width: 90px; */
+    outline: none;
+    border: none;
+    border-radius: 13px;
+    color: gray;
+    cursor: pointer;
+    margin-right: 15px;
+}
+.form .inputBox .btn .btn_send
+{
+	padding: 10px;
+    width: 300px;
+    outline: none;
+    border: none;
+    border-radius: 13px;
+    color: gray;
+    cursor: pointer;
+    margin-right: 68px;
+}
+.form .inputBox input::placeholder
+{
+	color: #fff;
+}
+.form .inputBox input[type="submit"]
+{
+	/* background: #fff; */
+	color: #666;
+	max-width: 100px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	font-weight: 600;
+	transition: all .2s;
+}
+.form .inputBox input[type="submit"]:focus
+{
+	background: 0 !important;
+	color: rgb(71, 54, 54);
+}
+.save button{
+  border: none;
+  padding: 2%;
+  width: 28%;
+  border-radius: 18px;
+  margin-top: 28px;
+  /* text-align: left; */
+  /* left: -9px; */
+  font-size: 16px;
+}
+
+.img{
+  position: relative;
+}
+.img label {
+  position: absolute;
+  top: 14px;
+  right: 41px;
 }
