@@ -36,7 +36,7 @@ class CreateRealestatesTable extends Migration
             $table->integer('countF');
             $table->enum('status', ["failed" ,"success","pending" ])->default('failed');
             $table->softDeletes();
-            // $table->date('end_r_date')->nullable();
+            $table->date('end_r_date');
             $table->timestamps();
 
 

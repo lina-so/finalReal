@@ -56,14 +56,21 @@ class ReserveController extends Controller
         $reserve->save();
 
         $days=4;
-        $dateReserve=$reserve->created_at->addDays($days)->format('d-m-Y');
+        $dateReserve=$reserve->created_at->addDays($days);
+        // $dateReserve=$reserve->created_at->addDays($days)->format('d-m-Y');
+        // $dateReserve=$reserve->created_at;
+
         
 
         $pend="pending";
         DB::update('update realestates set status = ? where id = ?',[$pend,$id]);
+        DB::update('update realestates set end_r_date = ? where id = ?',[$dateReserve,$id]);
+     
+
 
         $status=$reals;
-        dd($reals);
+        dd($dateReserve);
+        
         // $date = Carbon::createFromFormat('Y.m.d', $reserve->created_at);
         // $daysToAdd = 5;
         // $date = $date->addDays($daysToAdd);

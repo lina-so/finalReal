@@ -10,6 +10,7 @@ return[
     "passWord" => "PassWord",
     "more"=> "More",
     "search"=> "Search",
+    "phone"=>"phone",
     "buy"=> "buy",
     "sale"=> "sale",
     "rent"=> "Rent",
