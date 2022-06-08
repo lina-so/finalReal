@@ -26,6 +26,9 @@ class CreateUsersTable extends Migration
             $table->string('long')->nullable();
             $table->string('lat')->nullable();
             $table->string('phone');
+            $table->text('profileImg')->nullable();
+            $table->enum('gender' , ["female" , "male" ])->default('male');
+
             $table->timestamps();
         });
     }

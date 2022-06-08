@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\AuthController;
 // use  App\Http\Controllers\UserController;
 
 /*
@@ -19,10 +20,13 @@ use Illuminate\Support\Facades\Route;
      return $request->user();
  });
 
-//Route::post("login",[App\Http\Controllers\UserController::class,'index']);
+Route::post("/login",[App\Http\Controllers\UserController::class,'index']);
 
 //-------------------------------anas-------------------------------------------------------------
-Route::post('/login', 'App\Http\Controllers\API\AuthController@login');
+Route::post('/login', [AuthController::class,'index']);
+
+
+// Route::post('/login', 'App\Http\Controllers\API\AuthController@login');
 Route::post('/register', 'App\Http\Controllers\API\AuthController@register');
 
 Route::middleware('auth:sanctum')->group( function (){

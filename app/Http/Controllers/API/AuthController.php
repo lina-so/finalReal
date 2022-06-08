@@ -27,25 +27,49 @@ class AuthController extends BaseController
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
-        $success['token'] = $user->createToken('AnasEidDalal')->plainTextToken;
-        $success['name'] = $user->name;
-        return $this->sendResponse($success, 'User registered Successfully!' );
+
+        // $success['token'] = $user->createToken('AnasEidDalal')->plainTextToken;
+        $userData=User::where('email',$request->email)->get();
+
+
+        $response=[
+            'user'=>$userData,
+            'token'=>$user->createToken('AnasEidDalal')->plainTextToken,
+        ];
+        return $this->sendResponse($response, 'User registered Successfully!' );
     }
 
 
-
-    public function login(Request $request)
+    public function index(Request $requset)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $user = Auth::user();
-            $success['name'] = $user->name;
-            return $this->sendResponse($success, 'User Login Successfully!' );
-        }
-       else{
-            return $this->sendError('Unauthorised',['error','Unauthorised'] );
+        $user=User::where('email',$requset->email)->first();
+     
+        if(!$user || !Hash::check($requset->password,$user->password))
+        {
+            return response([
+                'message'=>['these credentials do not match our records.']
+            ],404);
         }
 
+        $token = $user->createToken('my-app-token')->plainTextToken;
+
+        $response=[
+            'user'=>$user,
+            'token'=>$token,
+        ];
+
+        // return response($requset,201);
+        return $this->sendResponse($response, 'User login Successfully!' );
+
+
+        // $user=User::get();
+        // $msg=["User login Successfully!"];
+        // return response($user,200,$msg);
+
     }
+
+
+
 
 
 
