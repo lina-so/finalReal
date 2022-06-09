@@ -42,12 +42,15 @@ class DesireController extends Controller
         $desire->address  = $request->address;
         $desire->floor  = $request->floor;
         $desire->area  = $request->area;
-        $desire->price  = $request->price;
+        $desire->min_price  = $request->min_price;
+        $desire->max_price  = $request->max_price;
         $desire->number_of_rooms  = $request->number_of_rooms;
         $desire->number_of_path_rooms  = $request->number_of_path_rooms;
         $desire->state  = $request->state;
         $desire->type  = $request->type;
         $desire->property_type  = $request->property_type;
+        $desire->furnished=$request->furnished;
+        $desire['services'] = json_encode($request->services);
         $desire->user_id = Auth::id();
         $desire->cities_id= $request->country;
 

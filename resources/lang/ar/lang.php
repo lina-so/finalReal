@@ -1,6 +1,8 @@
 <?php
 
 return[
+    "min_price"=>"السعر الأدنى",
+    "max_price"=>"السعر الأعلى",
     "Description"=>"الوصف",
     "select services"=>"اختار الخدمات المتوفرة للعقار ",
         "supermarket"=>"متجر",
@@ -10,7 +12,7 @@ return[
         "gym"=>"نادي رياضي",
         "school"=>"مدرسة",
         "furnished"=>"مفروش",
-        "furnished"=>"غير مفروش ",
+        "not_furnished"=>"غير مفروش ",
         "yes"=>"نعم",
         "no"=>"لا",
         "services"=>"الخدمات",

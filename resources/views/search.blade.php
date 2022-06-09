@@ -46,7 +46,10 @@
 							<input type="number" placeholder=@lang('lang.Area') name="area">
 						</div>
 						<div class="Box">
-							<input type="number" step=0.01  placeholder=@lang('lang.price') name="price">
+							<input type="number" step=0.01  placeholder=@lang('lang.min_price') name="min_price">
+						</div>
+						<div class="Box">
+							<input type="number" step=0.01  placeholder=@lang('lang.max_price') name="max_price">
 						</div>
 						<div class="Box">
 							<input type="number" placeholder=@lang('lang.number_of_rooms') name="number_of_rooms">
@@ -73,6 +76,13 @@
                                 <option value="Flat">@lang('lang.flat')</option>
                                 <option value="Shop">@lang('lang.shop')</option>
                                 <option value="Land">@lang('lang.land')</option>
+                            </select>
+                        </div>
+						<div class="inputBox">
+                            <select name="furnished">
+						     	<!-- <option value="" selected disabled>@lang('lang.furnished')</option> -->
+                                <option value="furnished">@lang('lang.furnished')</option>
+                                <option value="not_furnished">@lang('lang.not_furnished')</option>
                             </select>
                         </div>
                        

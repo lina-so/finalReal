@@ -47,7 +47,10 @@
 							<input type="number" placeholder=@lang('lang.Area') name="area">
 						</div>
 						<div class="Box">
-							<input type="number" step=0.01  placeholder=@lang('lang.price') name="price">
+							<input type="number" step=0.01  placeholder=@lang('lang.min_price') name="min_price">
+						</div>
+						<div class="Box">
+							<input type="number" step=0.01  placeholder=@lang('lang.max_price') name="max_price">
 						</div>
 						<div class="Box">
 							<input type="number" placeholder=@lang('lang.number_of_rooms') name="number_of_rooms">
@@ -76,6 +79,30 @@
                                 <option value="Land">@lang('lang.land')</option>
                             </select>
                         </div>
+
+						<div class="inputBox">
+                            <select name="furnished">
+						     	<!-- <option value="" selected disabled>@lang('lang.furnished')</option> -->
+                                <option value="furnished">@lang('lang.furnished')</option>
+                                <option value="not_furnished">@lang('lang.not furnished')</option>
+                            </select>
+                        </div>
+
+						<div class="inputBox multiselect">
+						<select data-placeholder="@lang('lang.select services')" multiple class="chosen-select" name="services[]">
+							<option value=""></option>
+							<option value="security">@lang('lang.security')</option>
+							<option value="internet">@lang('lang.internet')</option>
+							<option value="car_Parking">@lang('lang.car_Parking')</option> 
+							<option value="supermarket">@lang('lang.supermarket')</option>
+							<option value="mosque">@lang('lang.mosque')</option>
+							<option value="green park">@lang('lang.green park')</option>
+							<option value="restaurant">@lang('lang.restaurant')</option>
+							<option value="gym">@lang('lang.gym')</option>
+							<option value="school">@lang('lang.school')</option>
+						</select>
+						</div>
+                       
                      
 						<div class="save">
                             <button type="submit">@lang('lang.save')</button>
@@ -86,5 +113,20 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+        $(document).ready(function() {
+            // Select2 Multiple
+            $('.select2-multiple').select2({
+                placeholder: "Select",
+                allowClear: true
+            });
+
+        });
+
+		$(".chosen-select").chosen({
+		no_results_text: "Oops, nothing found!"
+		})
+    </script>
 
 @endsection

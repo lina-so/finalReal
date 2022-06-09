@@ -19,6 +19,8 @@ class CreateRealestatesTable extends Migration
             $table->integer('floor');
             $table->integer('area')->nullable();
             $table->double('price')->nullable();
+            $table->double('min_price')->nullable();
+            $table->double('max_price')->nullable();
             $table->integer('number_of_rooms')->nullable();;
             $table->integer('number_of_path_rooms')->nullable();
             $table->boolean('is_sales')->default(0);

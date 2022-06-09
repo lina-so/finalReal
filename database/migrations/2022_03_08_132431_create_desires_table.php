@@ -18,8 +18,9 @@ class CreateDesiresTable extends Migration
             $table->string('address');
             $table->integer('floor');
             $table->integer('area')->nullable();
-            $table->double('price')->nullable();
-            $table->integer('number_of_rooms')->nullable();;
+            $table->double('min_price')->nullable();
+            $table->double('max_price')->nullable();
+            $table->integer('number_of_rooms')->nullable();
             $table->integer('number_of_path_rooms')->nullable();
             $table->boolean('is_sales')->default(0);
             $table->boolean('is_rent')->default(0);
@@ -29,6 +30,8 @@ class CreateDesiresTable extends Migration
             $table->enum('property_type', ["villa" , "flat","land","shop" ])->default('flat');
             $table->string('long')->nullable();
             $table->string('lat')->nullable();
+            $table->enum('furnished' , ["furnished" , "not_furnished" ])->default('not_furnished');//مفروش ام لا
+            $table->longText('services');
     
             $table->timestamps();
 

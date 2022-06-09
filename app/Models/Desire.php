@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Desire extends Model
 {
     protected $fillable = [
-        'location', 'city', 'floor','area','price','number_of_rooms',
-        'number_of_path_rooms',
+        'location', 'city', 'floor','area','min_price','max_price','number_of_rooms',
+        'number_of_path_rooms','furnished','services',
     ];
 
     public function User(){

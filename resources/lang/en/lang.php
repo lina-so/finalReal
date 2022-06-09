@@ -1,6 +1,9 @@
 <?php
 
 return[
+    "min_price"=>"Min_Price",
+    "max_price"=>"Max_Price",
+
     "Description"=>"Description",
     "select services"=>"select services",
     "supermarket"=>"Supermarket",
@@ -10,7 +13,7 @@ return[
     "gym"=>"Gym",
     "school"=>"School",
     "furnished"=>"Furnished",
-    "furnished"=>"not Furnished",
+    "not_furnished"=>"not Furnished",
     "yes"=>"Yes",
     "no"=>"No",
     "services"=>"Services",

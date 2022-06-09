@@ -76,7 +76,7 @@
                             <select name="furnished">
 						     	<!-- <option value="" selected disabled>@lang('lang.furnished')</option> -->
                                 <option value="furnished">@lang('lang.furnished')</option>
-                                <option value="not_furnished">@lang('lang.not furnished')</option>
+                                <option value="not_furnished">@lang('lang.not_furnished')</option>
                             </select>
                         </div>
 
@@ -86,7 +86,7 @@
 							<option value="security">@lang('lang.security')</option>
 							<option value="internet">@lang('lang.internet')</option>
 							<option value="car_Parking">@lang('lang.car_Parking')</option> 
-							<option value="">@lang('lang.supermarket')</option>
+							<option value="supermarket">@lang('lang.supermarket')</option>
 							<option value="mosque">@lang('lang.mosque')</option>
 							<option value="green park">@lang('lang.green park')</option>
 							<option value="restaurant">@lang('lang.restaurant')</option>

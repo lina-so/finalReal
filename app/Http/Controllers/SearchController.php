@@ -43,7 +43,8 @@ class SearchController extends Controller
         $address = $request->address;
         $floor = $request->floor;
         $area = $request->area;
-        $price = $request->price;
+        $min_price = $request->min_price;
+        $max_price = $request->max_price;
         $number_of_rooms = $request->number_of_rooms;
         $number_of_path_rooms = $request->number_of_path_rooms;
         $state = $request->state;
@@ -51,7 +52,7 @@ class SearchController extends Controller
         $property_type = $request->property_type;
 
     
-        if (empty($country) && empty($address) && empty($floor) && empty($area)&& empty($price)&& empty($number_of_rooms)&& empty($number_of_path_rooms)&& empty($state)&& empty($type)&& empty($property_type)) {
+        if (empty($country) && empty($address) && empty($floor) && empty($area)&& empty($min_price)&& empty($max_price) && empty($number_of_rooms)&& empty($number_of_path_rooms)&& empty($state)&& empty($type)&& empty($property_type)) {
             Session::flash('danger', "You didn't select any search any search.");
             return redirect()->back();
         }
@@ -60,7 +61,7 @@ class SearchController extends Controller
         ->join('cities', 'real.cities_id', '=', 'cities.id')
         ->where('floor',$floor)
         ->where('area',$area)
-        ->whereBetween('price', [$price-10, $price+50])
+        ->whereBetween('price', [$min_price, $max_price])
         ->where('number_of_path_rooms',$number_of_path_rooms)
         ->where('number_of_rooms',$number_of_rooms)
         ->where('state',$state)
@@ -73,7 +74,7 @@ class SearchController extends Controller
         $res1 = DB::table('realestates as real')
         ->join('cities', 'real.cities_id', '=', 'cities.id')
         ->where('floor',$floor)
-        ->whereBetween('price', [$price-10, $price+50])
+        ->whereBetween('price', [$min_price, $max_price])
         ->where('number_of_rooms',$number_of_rooms)
         ->where('state',$state)
         ->where('property_type',$property_type)
