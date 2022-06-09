@@ -1,8 +1,15 @@
 <?php
 
 return[
+    "select services"=>"اختار الخدمات المتوفرة للعقار ",
+        "supermarket"=>"متجر",
+        "mosque"=>"مسجد",
+        "green park"=>"حديقة",
+        "restaurant"=>"مطعم",
+        "gym"=>"نادي رياضي",
+        "school"=>"مدرسة",
         "furnished"=>"مفروش",
-    "furnished"=>"غير مفروش ",
+        "furnished"=>"غير مفروش ",
         "yes"=>"نعم",
         "no"=>"لا",
         "services"=>"الخدمات",

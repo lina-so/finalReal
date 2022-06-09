@@ -79,14 +79,21 @@
                                 <option value="not_furnished">@lang('lang.not furnished')</option>
                             </select>
                         </div>
-						<div class="inputBox">
-                            <select name="services">
-					            <option value="" selected disabled>@lang('lang.services')</option>
-                                <option value="security">@lang('lang.security')</option>
-                                <option value="internet">@lang('lang.internet')</option>
-                                <option value="car_Parking">@lang('lang.car_Parking')</option>
-                            </select>
-                        </div>
+
+						<div class="inputBox multiselect">
+						<select data-placeholder="@lang('lang.select services')" multiple class="chosen-select" name="services[]">
+							<option value=""></option>
+							<option value="security">@lang('lang.security')</option>
+							<option value="internet">@lang('lang.internet')</option>
+							<option value="car_Parking">@lang('lang.car_Parking')</option> 
+							<option value="">@lang('lang.supermarket')</option>
+							<option value="mosque">@lang('lang.mosque')</option>
+							<option value="green park">@lang('lang.green park')</option>
+							<option value="restaurant">@lang('lang.restaurant')</option>
+							<option value="gym">@lang('lang.gym')</option>
+							<option value="school">@lang('lang.school')</option>
+						</select>
+						</div>
                        
 						<div class="inputBox img">
 							<label for="">Cover</label>
@@ -106,4 +113,20 @@
 		</div>
 	</div>
 
+	<script>
+        $(document).ready(function() {
+            // Select2 Multiple
+            $('.select2-multiple').select2({
+                placeholder: "Select",
+                allowClear: true
+            });
+
+        });
+
+		$(".chosen-select").chosen({
+  no_results_text: "Oops, nothing found!"
+})
+    </script>
 @endsection
+
+

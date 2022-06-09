@@ -1,6 +1,13 @@
 <?php
 
 return[
+    "select services"=>"select services",
+    "supermarket"=>"Supermarket",
+    "mosque"=>"Mosque",
+    "green park"=>"Green Park",
+    "restaurant"=>"Restaurant",
+    "gym"=>"Gym",
+    "school"=>"School",
     "furnished"=>"Furnished",
     "furnished"=>"not Furnished",
     "yes"=>"Yes",

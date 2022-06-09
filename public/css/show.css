@@ -394,3 +394,8 @@ p{
   top: 14px;
   right: 41px;
 }
+.multiselect
+{
+    height: 44px;
+    line-height: 44px;
+}

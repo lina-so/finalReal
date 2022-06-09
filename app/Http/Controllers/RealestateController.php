@@ -63,6 +63,9 @@ class RealestateController extends Controller
         $real->state  = $request->state;
         $real->type  = $request->type;
         $real->property_type  = $request->property_type;
+        $real->furnished=$request->furnished;
+        $real['services'] = json_encode($request->services);
+        // $real->services=$request->services;
         $real->user_id = Auth::id();
         $real->cities_id= $request->country;
 

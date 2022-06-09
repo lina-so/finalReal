@@ -15,7 +15,6 @@ class CreateRealestatesTable extends Migration
     {
         Schema::create('realestates', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->string('country');
             $table->string('address');
             $table->integer('floor');
             $table->integer('area')->nullable();
@@ -31,7 +30,7 @@ class CreateRealestatesTable extends Migration
             $table->string('long')->nullable();
             $table->string('lat')->nullable();
             $table->enum('furnished' , ["furnished" , "not_furnished" ])->default('not_furnished');//مفروش ام لا
-            $table->enum('services' , ["security" , "internet","car_Parking"])->default('internet');
+            $table->longText('services');
             $table->text('cover');
             $table->text('image');
             $table->string('image_path');
