@@ -30,6 +30,8 @@ class CreateRealestatesTable extends Migration
             $table->enum('property_type', ["villa" , "flat","land","shop" ])->default('flat');
             $table->string('long')->nullable();
             $table->string('lat')->nullable();
+            $table->enum('furnished' , ["furnished" , "not_furnished" ])->default('not_furnished');//مفروش ام لا
+            $table->enum('services' , ["security" , "internet","car_Parking"])->default('internet');
             $table->text('cover');
             $table->text('image');
             $table->string('image_path');

@@ -1,6 +1,17 @@
 <?php
 
 return[
+        "furnished"=>"مفروش",
+    "furnished"=>"غير مفروش ",
+        "yes"=>"نعم",
+        "no"=>"لا",
+        "services"=>"الخدمات",
+        "security"=>"الأمن",
+        "internet"=>"انترنت",
+        "car_Parking"=>"موقف سيارات",
+        "gender"=>"الجنس",
+        "male"=>"ذكر",
+        "female"=>"أنثى",
         "laravel"=>"لارافيل",
         "damascus" => "دمشق",
         "login" => "تسجيل الدخول",

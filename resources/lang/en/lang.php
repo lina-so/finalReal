@@ -1,6 +1,17 @@
 <?php
 
 return[
+    "furnished"=>"Furnished",
+    "furnished"=>"not Furnished",
+    "yes"=>"Yes",
+    "no"=>"No",
+    "services"=>"Services",
+    "security"=>"Security",
+    "internet"=>"Internet",
+    "car_Parking"=>"Car_Parking",
+    "gender"=>"Gender",
+    "male"=>"Male",
+    "female"=>"Female",
     "laravel"=>"laravel",
     "damascus" => "Damascus",
     "login" => "Login ",

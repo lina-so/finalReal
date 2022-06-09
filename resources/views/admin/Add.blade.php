@@ -72,6 +72,21 @@
                                 <option value="Land">@lang('lang.land')</option>
                             </select>
                         </div>
+						<div class="inputBox">
+                            <select name="furnished">
+						     	<!-- <option value="" selected disabled>@lang('lang.furnished')</option> -->
+                                <option value="furnished">@lang('lang.furnished')</option>
+                                <option value="not_furnished">@lang('lang.not furnished')</option>
+                            </select>
+                        </div>
+						<div class="inputBox">
+                            <select name="services">
+					            <option value="" selected disabled>@lang('lang.services')</option>
+                                <option value="security">@lang('lang.security')</option>
+                                <option value="internet">@lang('lang.internet')</option>
+                                <option value="car_Parking">@lang('lang.car_Parking')</option>
+                            </select>
+                        </div>
                        
 						<div class="inputBox img">
 							<label for="">Cover</label>

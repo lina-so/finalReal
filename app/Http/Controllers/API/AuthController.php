@@ -19,6 +19,9 @@ class AuthController extends BaseController
             'password'  => ['required', 'string', 'min:8'],
             'c_password'=> 'required|same:password',
             'phone'=>['required'],
+            // 'profileImg'=>['required'],
+            'gender'=>['required'],
+
         ]);
         if ($validator->fails()) {
             return $this->sendError('Validate Error',$validator->errors() );

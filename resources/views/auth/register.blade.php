@@ -84,6 +84,16 @@
                         </div>
 
                         <div class="inputBox">
+                        <label for="phone" class="col-md-4 col-form-label text-md-right">@lang('lang.gender')</label>
+
+                            <select name="gender">
+                                <!-- <option value="" selected disabled>@lang('lang.gender')</option> -->
+                                <option value="female">@lang('lang.female')</option>
+                                <option value="male">@lang('lang.male')</option>
+                            </select>
+                        </div>
+
+                        <div class="inputBox">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}

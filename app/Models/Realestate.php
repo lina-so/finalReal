@@ -14,7 +14,7 @@ class Realestate extends Model
     protected $dates = ['deleted_at'];
     protected $fillable = [
         'address', 'floor','area','price','number_of_rooms',
-        'number_of_path_rooms','cover','image','image_path','countF','end_r_date',
+        'number_of_path_rooms','furnished','services','cover','image','countF','end_r_date',
     ];
 
     public function Purchases(){
