@@ -1,6 +1,7 @@
 <?php
 
 return[
+    "Description"=>"الوصف",
     "select services"=>"اختار الخدمات المتوفرة للعقار ",
         "supermarket"=>"متجر",
         "mosque"=>"مسجد",

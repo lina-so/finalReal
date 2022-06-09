@@ -103,6 +103,12 @@
 							<label for="">Images</label>
                             <input type="file" id="image" name="image[]" multiple >  
                         </div>
+
+						<div class="inputBox">
+							<label for="description">@lang('lang.Description')</label>
+							<textarea type="text" class="form-control" name="description" value=""></textarea>
+						</div>
+
 						<div class="save">
                             <button type="submit">@lang('lang.save')</button>
                         </div>

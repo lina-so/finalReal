@@ -114,7 +114,8 @@ class RealestateController extends Controller
         // dd($c);
         $real->image_path=$des;
         $real->countF=$c;
-       
+        $real->description=$request->description;
+               
         $real->save();
 
         // $reserve= new Reserve;

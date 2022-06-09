@@ -1,6 +1,7 @@
 <?php
 
 return[
+    "Description"=>"Description",
     "select services"=>"select services",
     "supermarket"=>"Supermarket",
     "mosque"=>"Mosque",
