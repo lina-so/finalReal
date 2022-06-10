@@ -60,18 +60,21 @@
 
 						<div class="Box">
                             <select  name="state">
+						     	<option value="" selected disabled>@lang('lang.state')</option>
                                 <option value="Sale">@lang('lang.sale')</option>
                                 <option value="Rent">@lang('lang.rent')</option>
                             </select>
                         </div>
                         <div class="Box">
                             <select name="type">
+						     	<option value="" selected disabled>@lang('lang.Type')</option>
                                 <option value="court">@lang('lang.court')</option>
                                 <option value="tabo">@lang('lang.tabo')</option>
                             </select>
                         </div>
                         <div class="Box">
                             <select name="property_type">
+						     	<option value="" selected disabled>@lang('lang.Property Type')</option>
                                 <option value="Villa">@lang('lang.villa')</option>
                                 <option value="Flat">@lang('lang.flat')</option>
                                 <option value="Shop">@lang('lang.shop')</option>
@@ -80,7 +83,7 @@
                         </div>
 						<div class="inputBox">
                             <select name="furnished">
-						     	<!-- <option value="" selected disabled>@lang('lang.furnished')</option> -->
+						     	<option value="" selected disabled>@lang('lang.furnished or not')</option>
                                 <option value="furnished">@lang('lang.furnished')</option>
                                 <option value="not_furnished">@lang('lang.not_furnished')</option>
                             </select>

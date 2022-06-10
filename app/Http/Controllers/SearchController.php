@@ -39,6 +39,9 @@ class SearchController extends Controller
 
     public function result(Request $request)
     {
+
+        $real = Realestate::query();
+    
         $country = $request->country;
         $address = $request->address;
         $floor = $request->floor;
@@ -50,78 +53,39 @@ class SearchController extends Controller
         $state = $request->state;
         $type = $request->type;
         $property_type = $request->property_type;
+        $furnished=$request->furnished;
+
+        $real = Realestate::when($request->address, function ($query, $address) {
+            return $query->where('address', 'like', "%{$address}%");
+        })->when($request->floor, function ($query, $floor) {
+            return $query->where('floor',$floor);
+        })->when($request->area, function ($query, $area) {
+            return $query->where('area',$area);
+        })->when($request->min_price, function ($query, $min_price) {
+            return $query->where('price','>=',$min_price);
+        })->when($request->max_price, function ($query, $max_price) {
+            return $query->where('price','<=',$max_price);
+        })->when($request->number_of_rooms, function ($query, $number_of_rooms) {
+            return $query->where('number_of_rooms',$number_of_rooms);
+        })->when($request->number_of_path_rooms, function ($query, $number_of_path_rooms) {
+            return $query->where('number_of_path_rooms',$number_of_path_rooms);
+        })->when($request->state, function ($query, $state) {
+            return $query->where('state',$state);
+        })->when($request->type, function ($query, $type) {
+            return $query->where('type',$type);
+        })->when($request->property_type, function ($query, $property_type) {
+            return $query->where('property_type',$property_type);
+        })->when($request->country, function ($query, $country) {
+            return $query->where('cities_id',$country);
+        })->when($request->furnished, function ($query, $furnished) {
+            return $query->where('furnished',$furnished);
+        })
+        ->paginate(15);
 
     
-        if (empty($country) && empty($address) && empty($floor) && empty($area)&& empty($min_price)&& empty($max_price) && empty($number_of_rooms)&& empty($number_of_path_rooms)&& empty($state)&& empty($type)&& empty($property_type)) {
-            Session::flash('danger', "You didn't select any search any search.");
-            return redirect()->back();
-        }
-    
-        $res = DB::table('realestates as real')
-        ->join('cities', 'real.cities_id', '=', 'cities.id')
-        ->where('floor',$floor)
-        ->where('area',$area)
-        ->whereBetween('price', [$min_price, $max_price])
-        ->where('number_of_path_rooms',$number_of_path_rooms)
-        ->where('number_of_rooms',$number_of_rooms)
-        ->where('state',$state)
-        ->where('type',$type)
-        ->where('property_type',$property_type)
-        ->select('real.*', 'cities.country')
-        ->get()->toArray();
-
-
-        $res1 = DB::table('realestates as real')
-        ->join('cities', 'real.cities_id', '=', 'cities.id')
-        ->where('floor',$floor)
-        ->whereBetween('price', [$min_price, $max_price])
-        ->where('number_of_rooms',$number_of_rooms)
-        ->where('state',$state)
-        ->where('property_type',$property_type)
-        ->select('real.*', 'cities.country')
-        ->get()->toArray();
-
-        $res2 = DB::table('realestates as real')
-        ->join('cities', 'real.cities_id', '=', 'cities.id')
-        ->where('floor',$floor)
-        ->where('state',$state)
-        ->where('property_type',$property_type)
-        ->select('real.*', 'cities.country')
-        ->get()->toArray();
-
-
-        $x=0;
-
-
-        if(!empty($res))
-         {
-             $x=1;
-             return view('resultSearch',compact('res'));
-            echo 'res';
-            // dd($res);
-         }
-        else if(!empty($res1))
-        {
-            // dd($res1);
-            return view('resultSearch',compact('res1'));
-
-          echo 'res1';
-        //   dd($res1);
-        }
-        else if(!empty($res2))
-        {
-            // dd($res1);
-            return view('resultSearch',compact('res2'));
-
-          echo 'res2';
-        //   dd($res1);
-        }
-        else 
-        {
-            echo 'not Found';
-        }
-  
-                    
+        // dd($real);
+        return view('resultSearch',compact('real'));
+         
     }
 
 }

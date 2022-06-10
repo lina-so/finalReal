@@ -4,6 +4,8 @@ return[
     "min_price"=>"Min_Price",
     "max_price"=>"Max_Price",
 
+    "state"=>"state",
+    "furnished or not"=>"Furnished Or Not",
     "Description"=>"Description",
     "select services"=>"select services",
     "supermarket"=>"Supermarket",
