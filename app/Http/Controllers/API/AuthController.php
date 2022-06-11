@@ -32,7 +32,7 @@ class AuthController extends BaseController
         $user = User::create($input);
 
         // $success['token'] = $user->createToken('AnasEidDalal')->plainTextToken;
-        $userData=User::where('email',$request->email)->get();
+        $userData=User::where('email',$request->email)->first();
 
 
         $response=[
