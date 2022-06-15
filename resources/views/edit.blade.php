@@ -4,33 +4,28 @@
 
 @section('content')
 
-<div class="container2">
-        <div class="header-content">
-            <!-- <p>Active Listings +1,500 Over</p> -->
-            <h1>@lang('lang.Finds Nearby Places & Things')</h1>
-            <button><a href="">@lang('lang.Search Now')</a></button>
-        </div>
-    </div>
+<div class="container">
 
-    <div class="section1">
+
+    <div class="section_1">
+	<div class="color"></div>
 		<div class="color"></div>
 		<div class="color"></div>
-		<div class="color"></div>
-		<div class="box1">
-			<!-- <div class="square" style="--i: 0;"></div>
+		<div class="box">
+			<div class="square" style="--i: 0;"></div>
 			<div class="square" style="--i: 1;"></div>
 			<div class="square" style="--i: 2;"></div>
 			<div class="square" style="--i: 3;"></div>
-			<div class="square" style="--i: 4;"></div> -->
+			<div class="square" style="--i: 4;"></div>
 
-			<div class="container2">
-				<div class="form1">
+			<div class="container_1">
+				<div class="form">
 					<h2>@lang('lang.Edit Realestate')</h2>
 					@foreach ($realestate as $real )
 					<form  action="{{route('update-realestate',$real->id)}}" method="POST" enctype="multipart/form-data">
 					    @csrf
                         @method('PUT')
-						<div class="Box">
+						<div class="inputBox">
 							<select  name="country">
 								<option value="">Select city</option>
 								
@@ -40,38 +35,38 @@
 		
 							</select>
                         </div>
-						<div class="Box">
+						<div class="inputBox">
 							<input type="text" placeholder="@lang('lang.address')"  name="address" value="{{$real->address}}">
 						</div>
-						<div class="Box">
+						<div class="inputBox">
 							<input type="Number" placeholder="@lang('lang.floor')"  name="floor"  value ="{{$real->floor}}">
 						</div>
-						<div class="Box">
+						<div class="inputBox">
 							<input type="number" placeholder="@lang('lang.Area')" name="area"  value ="{{$real->area}}">
 						</div>
-						<div class="Box">
+						<div class="inputBox">
 							<input type="number" step=0.01  placeholder="@lang('lang.price')" name="price"  value ="{{$real->price}}">
 						</div>
-						<div class="Box">
+						<div class="inputBox">
 							<input type="number" placeholder="@lang('lang.number_of_rooms')" name="number_of_rooms"  value ="{{$real->number_of_rooms}}">
 						</div>
-						<div class="Box">
+						<div class="inputBox">
 							<input type="number" placeholder="@lang('lang.number_of_path_rooms')" name="number_of_path_rooms"  value ="{{$real->number_of_path_rooms}}">
 						</div>
 
-						<div class="Box">
+						<div class="inputBox">
                             <select  name="state">
                                 <option value="Sale">@lang('lang.sale')</option>
                                 <option value="Rent">@lang('lang.rent')</option>
                             </select>
                         </div>
-                        <div class="Box">
+                        <div class="inputBox">
                             <select name="type">
                                 <option value="court">@lang('lang.court')</option>
                                 <option value="tabo">@lang('lang.tabo')</option>
                             </select>
                         </div>
-                        <div class="Box">
+                        <div class="inputBox">
                             <select name="property_type">
                                 <option value="Villa">@lang('lang.villa')</option>
                                 <option value="Flat">@lang('lang.flat')</option>
@@ -104,11 +99,11 @@
 						</div>
                        
                        
-						<div class="Box">
+						<div class="inputBox">
 							<label for="">Cover</label>
                             <input type="file" id="image" name="cover"  >  
                         </div>
-                        <div class="Box">
+                        <div class="inputBox">
 							<label for="">Images</label>
                             <input type="file" id="image" name="image[]" multiple >  
                         </div>

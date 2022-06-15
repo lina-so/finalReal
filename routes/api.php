@@ -38,6 +38,8 @@ Route::middleware('auth:sanctum')->group( function (){
     Route::get('/details/{id}', 'App\Http\Controllers\API\RealestateController@details');
     Route::get('/yourReal/{id}', 'App\Http\Controllers\API\RealestateController@yourReal');
     Route::delete('/delete/{id}', 'App\Http\Controllers\API\RealestateController@destroy');
+    Route::get("/search", [App\Http\Controllers\API\SearchController::class, 'search']);
+
 
 
 });

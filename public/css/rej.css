@@ -19,7 +19,8 @@ section{
 	align-items: center;
 	min-height: 100vh;
 	/* background: linear-gradient(to right, #0b7cdc,#97f41d,#e3ee22d9); */
-	background: linear-gradient(to top, #462446,#b05f6d,#eb6b56,#ffc153);
+	/* background: linear-gradient(to top, #462446,#b05f6d,#eb6b56,#ffc153); */
+	background: linear-gradient(to right,#10375C,#127681,#f7d042,#F4F6FF);
 
 	
 }

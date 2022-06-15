@@ -47,8 +47,8 @@
                     <span class="price"><div class="icon"><img src="images/listing-icon-01.png" alt=""></div> @lang('lang.price') : ${{$real->price}} </span>
                     <span class="details">@lang('lang.Area') :  <em>{{$real->area}}</em> m2</span>
                     <ul class="info">
-                        <li><img src="images/listing-icon-02.png" alt=""> {{$real->number_of_rooms}} @lang('lang.bedroom')</li>
-                        <li><img src="images/listing-icon-03.png" alt=""> {{$real->number_of_path_rooms}} @lang('lang.pathrooms')</li>
+                        <li><img src="photo/listing-icon-02.png" alt=""> {{$real->number_of_rooms}} @lang('lang.bedroom')</li>
+                        <li><img src="photo/listing-icon-03.png" alt=""> {{$real->number_of_path_rooms}} @lang('lang.pathrooms')</li>
                     </ul>
                     <div class="main-white-button">
                     <a href="{{url('reserve/'.$real->id.'/')}}" class="reserve"><i class="fa fa-heart" data-product-id="{{$real->id}}" style="margin-left:10px"></i>@lang('lang.Reserve')</a>
