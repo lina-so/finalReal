@@ -76,7 +76,11 @@ class RealestateController extends Controller
 
         $format_time=$time->format('d-m-y').'_'.$time->format('H').'_'.$time->format('i').'_'.$time->format('m');
         $des=Auth::user()->name.'_'.Auth::id().'_'.$format_time;
+        $url='/images/'.Auth::user()->name.'_'.Auth::id().'_'.$format_time.'/';
 
+        $urls =array();
+
+        
          //process cover image
 
         if($request->hasFile("cover"))
@@ -88,6 +92,8 @@ class RealestateController extends Controller
             $real->cover = $image_name;
 
             $file->move('images/'.$des,$image_name);
+            array_push($urls,$url.$image_name);
+
 
         }
 
@@ -107,14 +113,19 @@ class RealestateController extends Controller
                 $real->image = $image_name;
                 $c++;
 
-                 $files->move('images/'.$des,$filename);
+                $files->move('images/'.$des,$filename);
+                array_push($urls,$url.$filename);
+ 
             }
         }
 
-        // dd($c);
+        // dd(json_encode($urls));
         $real->image_path=$des;
         $real->countF=$c;
         $real->description=$request->description;
+        // $real->urls=$request->urls;
+        $real['urls'] = json_encode($urls);
+
                
         $real->save();
 

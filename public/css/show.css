@@ -436,13 +436,12 @@ p{
 
 /*search page*/
 
-.container_2{
+ .container_2{
   margin-top: -188px;
-}
+} 
 
 .box .sq:nth-child(5) {
   top: 1px;
-  /* left: 1400px; */
   left: 1268px;
   width: 60px;
   height: 60px;
@@ -456,7 +455,6 @@ p{
 }
 .box .sq:nth-child(3) {
   bottom: 25px;
-  /* right: -60px; */
   right: 309px;
   width: 80px;
   height: 80px;

@@ -41,6 +41,8 @@ class CreateRealestatesTable extends Migration
             $table->softDeletes();
             $table->date('end_r_date');
             $table->string('description')->nullable();
+            $table->text('urls');
+            // $table->json('urls');
             $table->timestamps();
 
 

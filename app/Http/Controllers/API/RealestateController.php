@@ -121,6 +121,10 @@ class RealestateController extends BaseController
         $format_time=$time->format('d-m-y').'_'.$time->format('H').'_'.$time->format('i').'_'.$time->format('m');
         $des=Auth::user()->name.'_'.Auth::id().'_'.$format_time;
         // $des='/images/'.Auth::user()->name.'_'.Auth::id().'_'.$format_time;
+        $url='/images/'.Auth::user()->name.'_'.Auth::id().'_'.$format_time.'/';
+
+        $urls =array();
+
 
          //process cover image
 
@@ -134,6 +138,8 @@ class RealestateController extends BaseController
 
             $file->move('images/'.$des,$image_name);
             // $file->storeAs($des, $image_name);
+            array_push($urls,$url.$image_name);
+
 
 
         }
@@ -156,6 +162,8 @@ class RealestateController extends BaseController
 
                  $files->move('images/'.$des,$filename);
                 // $files->storeAs($des,$filename);
+                array_push($urls,$url.$filename);
+
 
             }
         }
@@ -188,6 +196,7 @@ class RealestateController extends BaseController
         $real->image_path=$des;
         $real->countF=$c;
         $real->description=$request->description;
+        $real['urls'] = json_encode($urls);
                
         $real->save();
 
