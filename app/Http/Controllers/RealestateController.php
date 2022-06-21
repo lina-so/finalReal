@@ -213,59 +213,62 @@ class RealestateController extends Controller
         $realestate->user_id = Auth::id();
         $realestate->cities_id= $request->country;
 
-        //  update upload images
+
+          //process upload images
           $time = Carbon::now();
 
-        $format_time=$time->format('d-m-y').'_'.$time->format('H').'_'.$time->format('i').'_'.$time->format('m');
-        // $des='/images/'.Auth::user()->name.'_'.Auth::id().'_'.$format_time;
+          $format_time=$time->format('d-m-y').'_'.$time->format('H').'_'.$time->format('i').'_'.$time->format('m');
+          $des=Auth::user()->name.'_'.Auth::id().'_'.$format_time;
+          $url='/images/'.Auth::user()->name.'_'.Auth::id().'_'.$format_time.'/';
+  
+          $urls =array();
+  
+          
+           //process cover image
+  
+          if($request->hasFile("cover"))
+          {
+              $file=$request->file("cover");
+             
+              $image_name='cover'.'.'.'jpg';
+  
+              $realestate->cover = $image_name;
+  
+              $file->move('images/'.$des,$image_name);
+              array_push($urls,$url.$image_name);
+  
+  
+          }
+  
+          $i=1;
+          $c=0;
+  
+          if($request->hasFile("image"))
+          {
+              $file=$request->file("image");
+              foreach($file as $files)
+              {
+                  $filename =  $i++ .'.'. 'jpg';
+  
+                  $image_name = $i+1 .'.'. 'jpg';
+                  $request['user_id']=$realestate->id;
+                  $request['image']=$image_name;
+                  $realestate->image = $image_name;
+                  $c++;
+  
+                  $files->move('images/'.$des,$filename);
+                  array_push($urls,$url.$filename);
+   
+              }
+          }
+  
+          // dd(json_encode($urls));
+          $realestate->image_path=$des;
+          $realestate->countF=$c;
+          $realestate->description=$request->description;
+          // $realestate->urls=$request->urls;
+          $realestate['urls'] = json_encode($urls);
 
-
-         $des=$realestate->image_path;
-
-          //   update cover image
-
-         if($request->hasFile("cover"))
-         {
-             $file=$request->file("cover");
-             // $image = Realestate::where('user_id', '=', Auth::user()->id)->get();
-             $image_name='cover' .'.'.$file->getClientOriginalExtension();
-             $old_image=$realestate->cover;
-
-             Storage::disk('public_uploads')->delete($des.'/'.$old_image);
-              // if(Storage::disk('public_uploads')->exists($des.'/'.$old_image)){
-              //      Storage::disk('public_uploads')->delete($des.'/'.$old_image);
-              //     }else{
-              //       dd($des.'/'.$old_image);
-              //     }
-             $realestate->cover = $image_name;
-             $file->storeAs($des, $image_name);
-         }
-
-         //update images
-         if($request->hasFile("image"))
-         {
-             $file=$request->file("image");
-             foreach($file as $files)
-             {
-                 $filename = $files->getClientOriginalName();
-
-                 $image_name = time().'.'.$files->getClientOriginalExtension();
-                 $request['user_id']=$realestate->id;
-                 $request['image']=$image_name;
-                 $old_image=$realestate->image;
-                //  Storage::disk('public_uploads')->delete($des.'/'.$old_image);
-                Storage::delete($old_image);
-
-                 $realestate->image = $image_name;
-
-                 $files->storeAs($des,$image_name);
-
-
-             }
-         }
-
-
-        $realestate->description=$request->description;
 
         $realestate->update();
 

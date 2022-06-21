@@ -48,7 +48,7 @@ class Reservation extends Command
 
         foreach($reserve as $res)
         {
-            $eDate = $res->created_at->addDays(4);
+            $eDate = $res->created_at->addDays(1);
 
             // $res->update(['is_reserve'=>0]);
 
@@ -60,5 +60,6 @@ class Reservation extends Command
                 DB::table('reserves')->where('created_at',$res->created_at)->delete();
             }
         }
+        log:info('LINA');
     }
 }
