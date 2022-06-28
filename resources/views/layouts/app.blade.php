@@ -32,6 +32,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="photo/logo.png" alt="">
+                <p>Key In Click</p>
                     <!-- {{ config('app.name', 'Laravel') }} -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

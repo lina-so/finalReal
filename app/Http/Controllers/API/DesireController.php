@@ -52,7 +52,7 @@ class DesireController extends BaseController
         $desire->furnished=$request->furnished;
         $desire['services'] = json_encode($request->services);
         $desire->user_id = Auth::id();
-        $desire->cities_id= $request->country;
+        $desire->cities_id= $request->cities_id;
         $desire->save();
 
         return $this->sendResponse($desire, "Your desire Added Successfully." );

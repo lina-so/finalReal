@@ -34,7 +34,7 @@ Route::middleware('auth:sanctum')->group( function (){
     Route::post('/Add', 'App\Http\Controllers\API\RealestateController@store');
     Route::get('/Add', 'App\Http\Controllers\API\RealestateController@cities');
     Route::get('/show', 'App\Http\Controllers\API\RealestateController@show');
-    Route::put('/edit/{id}', 'App\Http\Controllers\API\RealestateController@update');
+    Route::post('/edit/{id}', 'App\Http\Controllers\API\RealestateController@update');
     Route::get('/details/{id}', 'App\Http\Controllers\API\RealestateController@details');
     Route::get('/yourReal/{id}', 'App\Http\Controllers\API\RealestateController@yourReal');
     Route::delete('/delete/{id}', 'App\Http\Controllers\API\RealestateController@destroy');
