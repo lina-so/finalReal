@@ -44,22 +44,22 @@ class Reservation extends Command
     {
         // $reserve=Reserve::where('is_reserve',1)->get();
 
-        $reserve = Reserve::all();
+        // $reserve = Reserve::all();
 
-        foreach($reserve as $res)
-        {
-            $eDate = $res->created_at->addDays(1);
+        // foreach($reserve as $res)
+        // {
+        //     $eDate = $res->created_at->addDays(1);
 
-            // $res->update(['is_reserve'=>0]);
+        //     // $res->update(['is_reserve'=>0]);
 
-            if($eDate>=Carbon::now())
-            {
-                // $re=Reserve::where('created_at',$res->created_at)->delete();
-                //  DB::update('update reserves set is_reserve = ? where created_at = ?',['0',$res->created_at]);
-                // DB::update('update reserves set is_reserve = ? ',['0']);
-                DB::table('reserves')->where('created_at',$res->created_at)->delete();
-            }
-        }
-        log:info('LINA');
+        //     if($eDate>=Carbon::now())
+        //     {
+        //         // $re=Reserve::where('created_at',$res->created_at)->delete();
+        //         //  DB::update('update reserves set is_reserve = ? where created_at = ?',['0',$res->created_at]);
+        //         // DB::update('update reserves set is_reserve = ? ',['0']);
+        //         DB::table('reserves')->where('created_at',$res->created_at)->delete();
+        //     }
+        // }
+        // \Log::info('lina');
     }
 }

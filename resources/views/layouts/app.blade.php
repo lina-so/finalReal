@@ -31,7 +31,8 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <img src="photo/logo.png" alt="">
+                    <!-- {{ config('app.name', 'Laravel') }} -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -79,8 +80,15 @@
                         @endguest
                         <a href=""><li>@lang('lang.more')
                             <ul>
+                               <a href="/show"><li>@lang('lang.home')</li></a>
                                <a href="/Add"><li>@lang('lang.add realestate')</li></a>
                                <a href="{{ route('favoraite-show') }}"><li>@lang('lang.Your Favoraite')</li></a>
+                               <a href="{{ route('your_real',Auth::id())}}"><li>@lang('lang.your Real')</li></a>
+                               <a href="{{ route('search')}}"><li>@lang('lang.search')</li></a>
+                               <a href="/desire"><li>@lang('lang.add desire')</li></a>
+
+
+
                             </ul>
                         </li>
                         </a>

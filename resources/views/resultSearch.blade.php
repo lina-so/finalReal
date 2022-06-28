@@ -24,7 +24,7 @@
                 <div class="container1 item">
                     <div class="listing-item">
                         <div class="left-image">
-                        <img src="{{asset('storage/٢٠٢١٠٤٠١_١٦٥٤٣١.jpg')}}" alt="">
+                        <img src="{{asset('images/'.$real->image_path.'/cover.jpg')}}" alt="">
                         </div>
                         <div class="right-content align-self-center">
                         <a href="#"><h4>{{ __('lang.' . $real->property_type) }}</h4></a>
@@ -40,15 +40,16 @@
                                 </svg>    15
                             </a></li>
                         </ul>
-                        <span class="price"><div class="icon"><img src="images/listing-icon-01.png" alt=""></div> @lang('lang.price') : ${{$real->price}} </span>
+                         <span class="price"><div class="icon icon_1"><img src="photo/listing-icon-01.png" alt=""></div> @lang('lang.price') : ${{$real->price}} </span>
+
                         <span class="details">@lang('lang.Area') :  <em>{{$real->area}}</em> m2</span>
                         <ul class="info">
-                            <li><img src="images/listing-icon-02.png" alt=""> {{$real->number_of_rooms}} @lang('lang.bedroom')</li>
-                            <li><img src="images/listing-icon-03.png" alt=""> {{$real->number_of_path_rooms}} @lang('lang.pathrooms')</li>
+                            <li><img src="photo/listing-icon-02.png" alt=""> {{$real->number_of_rooms}} @lang('lang.bedroom')</li>
+                            <li><img src="photo/listing-icon-03.png" alt=""> {{$real->number_of_path_rooms}} @lang('lang.pathrooms')</li>
                         </ul>
                         <div class="main-white-button">
                         <a href="{{url('reserve/'.$real->id.'/')}}" class="reserve"><i class="fa fa-heart" data-product-id="{{$real->id}}" style="margin-left:10px"></i>@lang('lang.Reserve')</a>
-                        <a href="{{route('details',$real->id)}}"><i class="fa fa-eye" style="margin-right:10px"></i>@lang('lang.view') @lang('lang.details')</a>
+                        <a href="{{route('details',$real->id)}}" class="details"><i class="fa fa-eye" style="margin-right:10px"></i>@lang('lang.view') @lang('lang.details')</a>
                         <a href="{{route('update-realestate',$real->id)}}"  class="deleteIcon" style="margin-left:10px"><i class=""></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" color="#502a4a">
                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>

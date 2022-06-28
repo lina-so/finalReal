@@ -3,7 +3,6 @@
 
 
 @section('content')
-
 <div class="container">
 
 
@@ -12,13 +11,13 @@
 		<div class="color"></div>
 		<div class="color"></div>
 		<div class="box">
-			<div class="square" style="--i: 0;"></div>
-			<div class="square" style="--i: 1;"></div>
-			<div class="square" style="--i: 2;"></div>
-			<div class="square" style="--i: 3;"></div>
-			<div class="square" style="--i: 4;"></div>
+			<div class="square sq" style="--i: 0;"></div>
+			<div class="square sq" style="--i: 1;"></div>
+			<div class="square sq" style="--i: 2;"></div>
+			<div class="square sq" style="--i: 3;"></div>
+			<div class="square sq" style="--i: 4;"></div>
 
-			<div class="container_1">
+			<div class="container_2">
 				<div class="form">
 					<h2>@lang('lang.Edit Realestate')</h2>
 					@foreach ($realestate as $real )
@@ -113,7 +112,7 @@
 							<textarea type="text" class="form-control" name="description" value=""></textarea>
 						</div>
 
-						<div class="save">
+						<div class="save save_1">
                             <button type="submit">@lang('lang.update')</button>
                         </div>
 						

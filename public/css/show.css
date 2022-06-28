@@ -6,6 +6,7 @@
 }
 body
 {
+  background-repeat: no-repeat;
 	/* overflow: hidden; */
 
   /*nice 1*/
@@ -184,6 +185,13 @@ h6,span{
   display: inline-block;
 }
 
+.item .right-content span.price .icon_1 img {
+  max-width: 16px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 7px;
+}
+
 .item .right-content span.details {
   display: block;
   margin-bottom: 30px;
@@ -226,14 +234,14 @@ h6,span{
 
 .item .right-content .main-white-button .content {
   
-  background-color: #f0df45;
-  padding: 15px;
-  margin-right: 10px;
-  border-radius: 10px;
+  /* background-color: #403f36; */
+  padding: 8px;
+  /* margin-right: 10px; */
+  /* border-radius: 10px; */
 }
 .item .right-content .main-white-button .content:nth-child(2)
 {
-  background-color:#e899e4;
+  /* background-color:#e899e4; */
 }
 
 
@@ -475,4 +483,22 @@ p{
 
 .save_1 button {
   padding: 1%;
+}
+
+a.reserve{
+  padding:10px;
+  background-color:#10375C;
+  /* background: linear-gradient(to right,#10375C,#f7d042,#F4F6FF); */
+  border-radius: 10%;
+  margin-right: 10px;
+}
+a.details{
+  padding:10px;
+  background-color:#f7d042;
+  /* background: linear-gradient(to right,#10375C,#f7d042,#F4F6FF); */
+  border-radius: 10%;
+}
+a.addToFavoraite{
+  margin-top: 12px;
+  /* width: 5em; */
 }

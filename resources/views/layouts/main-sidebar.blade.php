@@ -42,14 +42,7 @@
 						</ul>
 					</li>
 
-					<!-- <li class="navbar-item">
-                        <a href="#" class="nav-link" id="navbarDropdown" data-toggle="dropdown">@lang('lang.Language')</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a href="locale/en" class="dropdown-item">@lang('lang.English')</a>
-                            <a href="locale/ar" class="dropdown-item">@lang('lang.Arabic')</a>
-                        </div>
-                    </li> -->
-
+			
 
 
 					<div class="dropdown-item" aria-labelledby="navbarDropdown">

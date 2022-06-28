@@ -16,52 +16,57 @@ use Illuminate\Support\Facades\Session;
 
 class SearchController extends BaseController
 {
-
-    public function search(Request $request)
+    public function result(Request $request)
     {
+
+        $real = Realestate::query();
+    
         $country = $request->country;
         $address = $request->address;
         $floor = $request->floor;
         $area = $request->area;
-        $price = $request->price;
+        $min_price = $request->min_price;
+        $max_price = $request->max_price;
         $number_of_rooms = $request->number_of_rooms;
         $number_of_path_rooms = $request->number_of_path_rooms;
         $state = $request->state;
         $type = $request->type;
         $property_type = $request->property_type;
-        $furnished = $request->furnished;
-        $services = $request->services;
-        $is_sales = $request->is_sales;
-        $is_rent = $request->is_rent;
-        $is_favoraite = $request->is_favoraite;
+        $furnished=$request->furnished;
 
+        $real = Realestate::when($request->address, function ($query, $address) {
+            return $query->where('address', 'like', "%{$address}%");
+        })->when($request->floor, function ($query, $floor) {
+            return $query->where('floor',$floor);
+        })->when($request->area, function ($query, $area) {
+            return $query->where('area',$area);
+        })->when($request->min_price, function ($query, $min_price) {
+            return $query->where('price','>=',$min_price);
+        })->when($request->max_price, function ($query, $max_price) {
+            return $query->where('price','<=',$max_price);
+        })->when($request->number_of_rooms, function ($query, $number_of_rooms) {
+            return $query->where('number_of_rooms',$number_of_rooms);
+        })->when($request->number_of_path_rooms, function ($query, $number_of_path_rooms) {
+            return $query->where('number_of_path_rooms',$number_of_path_rooms);
+        })->when($request->state, function ($query, $state) {
+            return $query->where('state',$state);
+        })->when($request->type, function ($query, $type) {
+            return $query->where('type',$type);
+        })->when($request->property_type, function ($query, $property_type) {
+            return $query->where('property_type',$property_type);
+        })->when($request->country, function ($query, $country) {
+            return $query->where('cities_id',$country);
+        })->when($request->furnished, function ($query, $furnished) {
+            return $query->where('furnished',$furnished);
+        })
+        ->get();
 
+    
 
-        if (empty($country) && empty($address) && empty($floor) && empty($area)&& empty($price)&& empty($number_of_rooms)&& empty($number_of_path_rooms)&& empty($state)&& empty($type)&& empty($property_type)) {
-            return $this->sendResponse($request, "You didn't select any search any search." );
-        }
+        return $this->sendResponse($real, 'search retireved Successfully!' );
 
-        $search = DB::table('realestates as real')
-        ->where('address','=',$address)
-        ->orwhere('floor','=',$floor)
-        ->orwhere('area','=',$area)
-        ->orwhere('price','=', $price)
-        ->orwhere('number_of_path_rooms','=',$number_of_path_rooms)
-        ->orwhere('number_of_rooms','=',$number_of_rooms)
-        ->orwhere('state','=',$state)
-        ->orwhere('type','=',$type)
-        ->orwhere('property_type','=',$property_type)
-        ->orwhere('furnished','=',$furnished)
-        ->orwhere('services','=',$services)
-        ->orwhere('is_sales','=',$is_sales)
-        ->orwhere('is_rent','=',$is_rent)
-        ->orwhere('is_favoraite','=',$is_favoraite)
-        ->orwhere('cities_id','=',$country)
-
-
-        ->get()->toArray();
-
-
-        return $this->sendResponse($search, 'search retireved Successfully!' );
+         
     }
+
+
 }

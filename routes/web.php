@@ -123,6 +123,9 @@ Route::get("locale/{lange}", [LocalizationController::class, 'setLang']);
 // Auth::routes();
 
 
+
+Route::get("/zana", [App\Http\Controllers\SubscriptionController::class, 'index']);
+
 // Route::get('/{page}', [AdminController::class, 'index']);
 
 
