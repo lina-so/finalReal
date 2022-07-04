@@ -21,29 +21,28 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        $reserve=Reserve::whereDate('created_at', '<', Carbon::now()->subDays(1))->
-        delete();
+
 
     
 
         $reals=Reserve::select('user_id','real_id')->whereDate('created_at', '<', Carbon::now()->subDays(1))->
         get();
 
-        dd($reals);
+        // dd($reals);
 
         foreach($reals as $real)
         {
             $pend='failed';
-            DB::update('update realestates set status = ? where real_id = ? and user_id',[$pend,$real->real_id,$real->user_id]);
-
-            // dd($real->real_id);
-
+    
+            $update=Realestate::where('id', '=', $real->real_id)->where('user_id', '=', $real->user_id)
+            ->update(['status' => $pend]);
+   
         }
 
-        // dd('done');
- 
+        $reserve=Reserve::whereDate('created_at', '<', Carbon::now()->subDays(1))->
+        delete();
 
-        // dd(Carbon::now()->subDays(1));
+
     
 
       

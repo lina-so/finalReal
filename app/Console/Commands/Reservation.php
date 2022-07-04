@@ -7,7 +7,7 @@ use App\Models\Reserve;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-
+use App\Models\Realestate;
 
 class Reservation extends Command
 {
@@ -42,24 +42,29 @@ class Reservation extends Command
      */
     public function handle()
     {
-        // $reserve=Reserve::where('is_reserve',1)->get();
+        $reals=Reserve::select('user_id','real_id')->whereDate('created_at', '<', Carbon::now()->subDays(1))->
+        get();
 
-        // $reserve = Reserve::all();
+        // dd($reals);
 
-        // foreach($reserve as $res)
-        // {
-        //     $eDate = $res->created_at->addDays(1);
+        foreach($reals as $real)
+        {
+        //     $get=Realestate::select('status')->where('id', '=', $real->real_id)->where('user_id', '=', $real->user_id)
+        //     ->get();
 
-        //     // $res->update(['is_reserve'=>0]);
+        // \Log::info($get);
+    
 
-        //     if($eDate>=Carbon::now())
-        //     {
-        //         // $re=Reserve::where('created_at',$res->created_at)->delete();
-        //         //  DB::update('update reserves set is_reserve = ? where created_at = ?',['0',$res->created_at]);
-        //         // DB::update('update reserves set is_reserve = ? ',['0']);
-        //         DB::table('reserves')->where('created_at',$res->created_at)->delete();
-        //     }
-        // }
-        // \Log::info('lina');
+            $pend='failed';
+    
+            $update=Realestate::where('id', '=', $real->real_id)->where('user_id', '=', $real->user_id)
+            ->update(['status' => $pend]);
+   
+        }
+
+        $reserve=Reserve::whereDate('created_at', '<', Carbon::now()->subDays(1))->
+        delete();
+
+        // \Log::info($reals);
     }
 }

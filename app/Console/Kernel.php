@@ -6,6 +6,9 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use  \App\Console\Commands\Reservation;
 
+
+
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -24,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $schedule->command('user:reserve')->everyMinute();
+        $schedule->command('user:reserve')->daily();
     }
 
     /**

@@ -28,8 +28,9 @@ use App\Http\Controllers\LocalizationController;
 
 //dashboard Admin
 Route::middleware(['auth','isAdmin'])->group(function (){
-  Route::get('/home', [App\Http\Controllers\AdminController::class, 'showDashboard'])->name('dashboard');
+  // Route::get('/home', [App\Http\Controllers\AdminController::class, 'showDashboard'])->name('dashboard');
 });
+  Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 
 

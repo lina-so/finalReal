@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use App\Admin;
 
 class AdminController extends Controller
 {
@@ -22,6 +23,10 @@ class AdminController extends Controller
         }
 
      //   return view($id);
+    }
+
+    public function showDashboard(){
+        return view('home');
     }
 
     /**
