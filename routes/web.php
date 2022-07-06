@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\EmailsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\TestEnrollmentController;
+use App\Mail\desire;
 //  use App\Http\Controllers\PostController;
 
 /*
@@ -115,12 +119,6 @@ View::composer(['*','layouts.app','details'],function($view)
 });
 
 
-//display image store
-// Route::get('storage/app/images/loloo_4_07-04-22_15_50_04/{filename}', 'ViewsControllers@getPubliclyStorgeFile')->name('displayImage');
-
-
-//chartjs
-// Route::get('/test2', [ App\Http\Controllers\PostController::class, 'getMonthlyPostData']);
 
 //Localization Route
 Route::get("locale/{lange}", [LocalizationController::class, 'setLang']);
@@ -132,8 +130,31 @@ Route::get("locale/{lange}", [LocalizationController::class, 'setLang']);
 
 Route::get("/zana", [App\Http\Controllers\SubscriptionController::class, 'index']);
 
-// Route::get('/{page}', [AdminController::class, 'index']);
 
+//Route for mailing
+
+// Route::get('/email',function(){
+//   Mail::to('LinaSoleman63@gmail.com')->send( new desire());
+//   return new desire();
+// });
+
+
+// Route::get("/email", [App\Http\Controllers\EmailsController::class, 'email']);
+
+// Route::get("/send-notification", [App\Http\Controllers\TestEnrollmentController::class, 'sendTestNotification']);
+
+
+Route::get('send-mail', function () {
+   
+  $details = [
+      'title' => 'Mail from ItSolutionStuff.com',
+      'body' => 'This is for testing email using smtp'
+  ];
+ 
+  Mail::to('LinaSoleman63@gmail.com')->send(new \App\Mail\AttachmentMail($details));
+ 
+  dd("Email is Sent.");
+});
 
 
 
