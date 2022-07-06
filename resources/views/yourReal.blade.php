@@ -10,7 +10,8 @@
             <div class="container1 item">
                 <div class="listing-item">
                     <div class="left-image">
-                    <a href="#"><img src="{{asset('images/'.$realestate->image_path.'/cover.jpg')}}" alt=""></a>
+                    <img src="{{asset('images/'.$realestate->image_path.'/cover.jpg')}}" alt="">
+
                     </div>
                     <div class="right-content align-self-center">
                     <a href="#"><h4>{{ __('lang.' .  $realestate->property_type) }}</h4></a>

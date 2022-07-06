@@ -4,6 +4,24 @@
     $i=0;
     
 @endphp
+
+
+@if ($user == $details[0]->user_id)
+	        	<style>
+					  .content{
+                        display: block;
+                    }
+			
+				</style>  
+		@else
+	        	<style>
+                      .content{
+                        display: none;
+                    }
+				
+					
+				</style>
+		@endif
 @section('content')
 
             <div class="container2">
@@ -21,6 +39,12 @@
                         <div class="content-header-right">
                             <span>{{$details[0]->price}}$</span>
                             <span>{{ __('lang.' .  $details[0]->state) }}</span>
+                            <div class="content">
+                                <form action="{{route('success',$id)}}" method="POST">
+                                    @csrf
+                                <a ><button type="submit" class="servicedeletebtn"  id="Demo" >@lang('lang.success')</button></a>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

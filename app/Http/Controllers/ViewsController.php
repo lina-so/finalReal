@@ -52,8 +52,11 @@ class ViewsController extends Controller
         ->select('real.*', 'city.*')
         ->get();
         $type= gettype($details);
-        // dd($details);
-        return view('details' , compact('details'));
+
+        // dd($id);
+        $user=auth::user()->id;
+        // dd(auth::user()->id);
+        return view('details' , compact('details','id','user'));
     }
 
     

@@ -102,6 +102,11 @@ Route::delete("/delete/{id}", [App\Http\Controllers\RealestateController::class,
 Route::delete("/deletefav/{id}", [App\Http\Controllers\FavoraiteController::class, 'destroy'])->name('delete-favoraite');
 
 
+//success state 
+Route::post("/success/{id}", [App\Http\Controllers\RealestateController::class, 'success'])->name('success');
+
+
+
 /* view composer */
 View::composer(['*','layouts.app','details'],function($view)
 {

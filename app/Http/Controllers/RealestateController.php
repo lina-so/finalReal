@@ -278,6 +278,20 @@ class RealestateController extends Controller
 
     }
 
+    public function success($id)
+    {
+       
+        $success='success';
+
+        $update=Realestate::where('id', '=', $id)
+        ->update(['status' => $success]);
+
+        return redirect()->back()->with('mess','state updated successfully');
+
+
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *
