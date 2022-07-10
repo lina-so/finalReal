@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\Realestate;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 
 class ReserveController extends Controller
@@ -55,6 +57,7 @@ class ReserveController extends Controller
         $reserve->real_id=$real_id;
         $reserve->save();
 
+        Alert::success('Realestate Reserved Successfuly');
         $days=4;
         $dateReserve=$reserve->created_at->addDays($days);
         // $dateReserve=$reserve->created_at->addDays($days)->format('d-m-Y');
@@ -69,7 +72,7 @@ class ReserveController extends Controller
 
 
         $status=$reals;
-        dd($dateReserve);
+        // dd($dateReserve);
         
         // $date = Carbon::createFromFormat('Y.m.d', $reserve->created_at);
         // $daysToAdd = 5;
@@ -78,7 +81,7 @@ class ReserveController extends Controller
         // dd($reserve->created_at);
 
 
-        // return redirect()->route('show')->with('mess','The property has been successfully Reserved, and now you have 4 days before the Reserving period ends');
+        return redirect()->route('show')->with('mess','The property has been successfully Reserved, and now you have 4 days before the Reserving period ends');
     }
 
     /**

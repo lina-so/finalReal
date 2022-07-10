@@ -1,9 +1,9 @@
 
 @extends('layouts.app')
 
-@if (session()->has('mess'))
+<!-- @if (session()->has('mess'))
 <h3>{{session()->get('mess')}}</h3>    
-@endif
+@endif -->
 
 @can('isAdmin')
         <style>
@@ -19,10 +19,10 @@
         </style>
  @endcan
 
-
         
 @section('content')
 
+@include('sweetalert::alert')
 
     @foreach($reals as $real)
 
@@ -41,6 +41,8 @@
                         <li><i class="fa fa-star-o"></i></li>
                         <li><i class="fa fa-star-o"></i></li>
                         <li><i class="fa fa-star-o"></i></li>
+                        <li class="state">{{$real->state}}</li>
+
                       <!--   <li> <a href="{{url('liked/'.$real->id.'/')}}" class="addToFavoraite"><i data-product-id="{{$real->id}}"></i><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" color="yellow">
                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>      
                             </svg>

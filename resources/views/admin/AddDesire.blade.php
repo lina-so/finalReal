@@ -18,7 +18,7 @@
 			<div class="square sq" style="--i: 4;"></div>
 			<div class="container_2">
 				<div class="form">
-					<h2>@lang('lang.add desire')</h2>
+					<h2 class="desire">@lang('lang.add desire')</h2>
 					<form  action="/desire" method="POST" enctype="multipart/form-data">
                     @csrf
 				    

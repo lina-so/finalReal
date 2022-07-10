@@ -3,7 +3,9 @@
 return[
     "min_price"=>"السعر الأدنى",
     "max_price"=>"السعر الأعلى",
+    "Not-found"=>"غير موجود",
     "Description"=>"الوصف",
+    "no-result"=>"ألم تجد ما تبحث عنه ؟ يمكننك إضافة رغبتك",
     "state"=>"الحالة",
     "select services"=>"اختار الخدمات المتوفرة للعقار ",
     "furnished or not"=>"مفروش أم لا",

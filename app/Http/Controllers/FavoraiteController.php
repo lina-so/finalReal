@@ -7,6 +7,8 @@ use App\Models\Realestate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class FavoraiteController extends Controller
 {
@@ -45,6 +47,8 @@ class FavoraiteController extends Controller
         $like->real_id=$real_id;
         $like->is_favoraite=1;
         $like->save();
+        Alert::success('You Love This Realestate');
+
 
         return redirect()->route('show')->with('mess','You Liked This Property');
     }

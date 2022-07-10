@@ -3,7 +3,8 @@
 return[
     "min_price"=>"Min_Price",
     "max_price"=>"Max_Price",
-
+    "Not-found"=>"Not Found",
+    "no-result"=>"Didn't Find What You're Looking For? You Can Add Your Desire",
     "state"=>"state",
     "furnished or not"=>"Furnished Or Not",
     "Description"=>"Description",
@@ -30,7 +31,7 @@ return[
     "login" => "Login ",
     "Logout" => "Logout",
     "home" => "Home",
-    "your Real" => "your Real",
+    "your Real" => "your Realestate",
     "passWord" => "PassWord",
     "more"=> "More",
     "search"=> "Search",

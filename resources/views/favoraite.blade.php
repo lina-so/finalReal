@@ -4,9 +4,9 @@
 
 @section('content')
 
-<h1>
-@lang('lang.favorite')
-  </h1>
+<div class="main-text fav">
+    <h1>@lang('lang.favorite')</h1>
+</div>
 
   <div>
     @if ($favoraite->count()>0)
@@ -26,7 +26,8 @@
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li><i class="fa fa-star-o"></i></li>
-                                <li>(24) Reviews</li>
+                                <li class="state">{{$fav->state}}</li>
+
                             </ul>
                             <span class="price"><div class="icon"><img src="photo/listing-icon-01.png" alt=""></div> @lang('lang.price') : ${{$fav->price}}</span>
                             <span class="details">@lang('lang.details') : <em>{{$fav->area}} sq ft</em></span>

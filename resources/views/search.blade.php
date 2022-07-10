@@ -19,7 +19,7 @@
 
 			<div class="container_2">
 				<div class="form">
-					<h2>@lang('lang.search')</h2>
+					<h2 class="desire">@lang('lang.search')</h2>
 					<form  action="/search" method="GET" enctype="multipart/form-data">
 						<div class="inputBox">
 							<select  name="country">
