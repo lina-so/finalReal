@@ -57,9 +57,7 @@
                     </div>
                     @endif
         @endforeach
-        
-        @else
-           <h4>@lang('lang.There is no realestate in your favoraite.')</h4>
+
     @endif
 
    

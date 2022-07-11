@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
 
 class UserController extends Controller
 {
@@ -28,4 +30,20 @@ class UserController extends Controller
         
              return response($response, 201);
     }
+
+    public function users(){
+        $users = DB::select('select * from users');
+
+        // dd($users);
+        return view('user.users',compact('users'));
+
+    }
+
+    public function destroy($id)
+    {
+        $user = DB::delete('delete  from users where id=?',[$id]);
+        return redirect()->route('users')->with('success','user deleted successfully');
+    }
+
 }
+

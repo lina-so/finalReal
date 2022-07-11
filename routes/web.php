@@ -110,6 +110,13 @@ Route::delete("/deletefav/{id}", [App\Http\Controllers\FavoraiteController::clas
 Route::post("/success/{id}", [App\Http\Controllers\RealestateController::class, 'success'])->name('success');
 
 
+//all users
+Route::get("/users", [App\Http\Controllers\UserController::class, 'users'])->name('users');
+
+//delete user
+Route::delete("/user/{id}", [App\Http\Controllers\UserController::class, 'destroy'])->name('delete-user');
+
+
 
 /* view composer */
 View::composer(['*','layouts.app','details'],function($view)

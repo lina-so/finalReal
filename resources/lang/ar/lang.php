@@ -74,6 +74,27 @@ return[
         "save"=>"حفظ",
         "add desire"=>"أدخل رغبتك",
         "All Realestates were Reserved"=>"جميع العقارات التي تم حجزها ",
+        "All Reserved Realestates"=>"جميع العقارات التي تم حجزها ",
+
+
+       "Dashboard"=>"لوحة التحكم",
+
+       "all users"=>"جميع المستخدمين",
+       "Sign Up"=>"اشتراك ",
+       "Sign In"=>"تسجيل الدخول",
+       "role"=>"الوظيفة",
+       "email"=>"الايميل",
+       "Realestate sale"=>"العقارات المعروضة للبيع",
+       "Realestate rent"=>"العقارات المعروضة للأجار",
+       "real ID"=>"رقم العقار",
+       "status"=>"الحالة",
+       "completed"=>"اكتمل البيع",
+
+   
+       "sales"=>"المبيعات",
+
+
+
         "Rooms"=>"غرف",
         "Reserve"=>"حجز",
         "Contact Listing Agent"=>"التواصل مع صاحب العقار",
