@@ -19,6 +19,8 @@
         </style>
  @endcan
 
+
+
         
 @section('content')
 
@@ -27,8 +29,17 @@
     @foreach($reals as $real)
 
 
+
             <div class="container1 item">
                 <div class="listing-item">
+                @if ($real->status=="success")
+                   <div class="done">
+                       <img class="done2" src="{{ asset('photo/done2.png') }}" alt="" style="">
+                    </div>
+                @else
+                    
+                @endif
+                   
                     <div class="left-image">
                     <img src="{{asset('images/'.$real->image_path.'/cover.jpg')}}" alt="">
                     </div>
@@ -58,18 +69,18 @@
                     <div class="main-white-button">
 
 
-            <form action="{{url('reserve/'.$real->id.'/')}}">
-                <button  class="reserve" <?php
-                if($real->status == "pending")
-                {
-                echo("disabled");
+                    <form action="{{url('reserve/'.$real->id.'/')}}">
+                        <button  class="reserve" <?php
+                        if($real->status == "pending")
+                        {
+                        echo("disabled");
 
-                }
-                else{
-                echo("");
-                }
-                ?>>@lang('lang.Reserve')</button>
-            </form>
+                        }
+                        else{
+                        echo("");
+                        }
+                        ?>>@lang('lang.Reserve')</button>
+                    </form>
 
                     <a href="{{route('details',$real->id)}}" class="details" id="details" ><i class="fa fa-eye" style="margin-right:10px"></i>@lang('lang.view') @lang('lang.details')</a>
                     <a  href="{{route('update-realestate',$real->id)}}"  class="deleteIcon icon2" style="margin-left:10px"><i class=""></i><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" color="#502a4a">
@@ -102,27 +113,13 @@
                     </div>
                 </div>
             </div>
-            <!-- @if ($real->status=="pending")
 
-<style>
-    a.reserve{
-        pointer-events: none;
-        color:red;
-      
-    }
-</style>
-@elseif ($real->status=="failed")
-<style>
-    a.reserve{
-        pointer-events: fill;
-        color:#fff;
-    }
-</style>
-
-@endif  -->
 
     
     @endforeach
+    
+    
+
 
 @endsection
 

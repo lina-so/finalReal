@@ -57,7 +57,7 @@ class ReserveController extends Controller
         $reserve->real_id=$real_id;
         $reserve->save();
 
-        Alert::success('Realestate Reserved Successfuly');
+        Alert::success('Realestate Reserved Successfuly','You have 24 hours to finish your reservation');
         $days=4;
         $dateReserve=$reserve->created_at->addDays($days);
         // $dateReserve=$reserve->created_at->addDays($days)->format('d-m-Y');

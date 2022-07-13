@@ -28,7 +28,7 @@ class RealestateController extends Controller
      */
     public function index()
     {
-        $reals = Realestate::latest()->paginate(8);
+        $reals = Realestate::latest()->paginate(6);
         return view('show' , compact(['reals']));
     }
 
