@@ -128,7 +128,7 @@ View::composer(['*','layouts.app','details'],function($view)
 
 
 //Localization Route
-Route::get("locale/{lange}", [LocalizationController::class, 'setLang']);
+Route::get("locale/{lange}", [LocalizationController::class, 'setLang'])->name('lang');
 
 
 // Auth::routes();

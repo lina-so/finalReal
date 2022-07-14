@@ -1,6 +1,35 @@
 
 @extends('layouts.app')
 
+ 
+@if (Session::get('locale')== "ar")
+        <style>
+          .container_2{
+            direction:rtl;
+          }
+		  .box .sq:nth-child(5){
+			margin-left: -1280px;
+		  }
+        
+		  .box .sq:nth-child(1){
+			margin-right: 1318px;
+		  }
+		  .box .sq:nth-child(2){
+			margin-left: -495px;
+		  }
+
+		
+        </style>  
+    @else
+        <style>
+             .container_2{
+            direction:ltr;
+            text-align:left;
+          }
+
+        </style>
+    @endif
+
 
 @section('content')
 

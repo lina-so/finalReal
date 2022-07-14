@@ -80,6 +80,10 @@ return[
     "status"=>"status",
     "completed"=>"completed",
     "sales"=>"sales",
+    "Sold"=>"Sold",
+    "Reserved"=>"Reserved",
+    "Agent"=>"Agent",
+    "by"=>"by",
 
     "Sign Up"=>"Sign Up",
     "Sign In"=>"Sign In",

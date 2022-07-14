@@ -89,7 +89,20 @@ h6,span{
 }
 .listing-item .done{
   position: absolute;
+  top: 14px;
 
+}
+.done p{
+  position: absolute;
+  top: 40%;
+  left: 25%;
+}
+
+.done p.done4{
+  position: absolute;
+  top: 34%;
+  left: 29%;
+  font-size: 1.8em;
 }
 .item
 {
@@ -205,7 +218,7 @@ h6,span{
   background-color: cadetblue;
   transform: rotateZ(45deg);
   width: 123px;
-  top: -53px;
+  top: -57px;
   left: 8px;
   text-align: center;
 }
@@ -287,7 +300,7 @@ h6,span{
   position: absolute;
   right: 60px;
   /* bottom: 40px; */
-  bottom: 17px;
+  bottom: 25px;
   text-align: center;
   display: flex;
   color: #fff;

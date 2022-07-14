@@ -1,6 +1,45 @@
 
 @extends('layouts.app')
 
+         
+@if (Session::get('locale')== "ar")
+        <style>
+          .item{
+            direction:rtl;
+          }
+          .item .right-content .icoon{
+            margin-right: 600px;
+          }
+          .listing-item .done{
+            position: absolute;
+            top: 14px;
+            left: 1%;
+          }
+          .done p {
+            margin-left: 11%;
+        }
+        .done p.done4{
+            margin-left: 5%;
+            margin-top: -2%;
+        }
+            
+        
+        </style>  
+    @else
+        <style>
+             .item{
+            direction:ltr;
+            text-align:left;
+          }
+          .done p {
+            position: absolute;
+            top: 40%;
+            left: 25%;
+        }
+  
+        </style>
+    @endif
+
 
 @section('content')
 
@@ -14,12 +53,28 @@
         @if (empty($fav->deleted_at))
             <div class="container1 item">
                         <div class="listing-item">
+                        @if ($fav->status=="success")
+                            <div class="done">
+                                <img class="done2" src="{{ asset('photo/done4.png') }}" alt="" style="">
+                                <p class="done4">@lang('lang.Sold')</p>
+                                </div>
+                            @else
+                                
+                            @endif
+                            @if ($fav->status=="pending")
+                            <div class="done">
+                                <img class="done2" src="{{ asset('photo/done3.png') }}" alt="" style="">
+                                <p>@lang('lang.Reserved')</p>
+                                </div>
+                            @else
+                                
+                            @endif
                             <div class="left-image">
                             <a href="#"><img src="{{asset('images/'.$fav->image_path.'/cover.jpg')}}" alt=""></a>
                             </div>
                             <div class="right-content align-self-center">
                             <a href="#"><h4>{{ __('lang.' . $fav->property_type) }}</h4></a>
-                            <h6>by: {{$fav->user_id}}</h6>
+                            <h6>@lang('lang.by') : @lang('lang.Agent')</h6>
                             <ul class="rate">
                                 <li><i class="fa fa-star-o"></i></li>
                                 <li><i class="fa fa-star-o"></i></li>
@@ -35,7 +90,7 @@
                                 <li><img src="photo/listing-icon-02.png" alt=""> {{$fav->number_of_rooms}} @lang('lang.Rooms')</li>
                                 <li><img src="photo/listing-icon-03.png" alt=""> {{$fav->number_of_path_rooms}} @lang('lang.pathrooms')</li>
                             </ul>
-                            <div class="main-white-button">
+                            <div class="main-white-button icoon">
                                 <div class="content">
                                     <a href="{{route('details',$fav->id)}}" class="reserve"><i class="fa fa-eye"></i>@lang('lang.view') @lang('lang.details')</a>
                                 </div>

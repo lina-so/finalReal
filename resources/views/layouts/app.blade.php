@@ -82,8 +82,8 @@
                             </svg>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
-                            <li><a class=" class="dropdown-item"" href="locale/en" style="padding-left:10px" >@lang('lang.English')</a></li>
-							<li><a class=" class="dropdown-item"" href="locale/ar" style="padding-left:10px" >@lang('lang.Arabic')</a></li>
+                            <li><a class=" class="dropdown-item"" href="{{route('lang','en')}}" style="padding-left:10px" >@lang('lang.English')</a></li>
+							<li><a class=" class="dropdown-item"" href="{{route('lang','ar')}}" style="padding-left:10px" >@lang('lang.Arabic')</a></li>
                             </ul>
                         </li>
 

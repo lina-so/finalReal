@@ -84,8 +84,8 @@
                             </svg>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
-                            <li><a class=" class="dropdown-item"" href="locale/en" style="padding-left:10px" >@lang('lang.English')</a></li>
-							<li><a class=" class="dropdown-item"" href="locale/ar" style="padding-left:10px" >@lang('lang.Arabic')</a></li>
+                            <li><a class=" class="dropdown-item"" href="{{route('lang','en')}}" style="padding-left:10px" >@lang('lang.English')</a></li>
+							<li><a class=" class="dropdown-item"" href="{{route('lang','ar')}}" style="padding-left:10px" >@lang('lang.Arabic')</a></li>
                             </ul>
                         </li>
 
@@ -142,6 +142,46 @@
             </div>
         </nav>
 
+         
+ @if (Session::get('locale')== "ar")
+        <style>
+          .item{
+            direction:rtl;
+          }
+          .item .right-content .icoon{
+            margin-right: 600px;
+          }
+          .listing-item .done{
+            position: absolute;
+            top: 14px;
+            left: 1%;
+          }
+          .done p {
+            margin-left: 11%;
+        }
+        .done p.done4{
+            margin-left: 5%;
+            margin-top: -2%;
+        }
+            
+        
+        </style>  
+    @else
+        <style>
+             .item{
+            direction:ltr;
+            text-align:left;
+          }
+          .done p {
+            position: absolute;
+            top: 40%;
+            left: 25%;
+        }
+  
+        </style>
+    @endif
+
+
         <main class="py-4">
                 <div class="main-text">
                     <h1>@lang('lang.your Real')</h1>
@@ -153,13 +193,29 @@
 
                             <div class="container1 item">
                                 <div class="listing-item">
+                                @if ($realestate->status=="success")
+                            <div class="done">
+                                <img class="done2" src="{{ asset('photo/done4.png') }}" alt="" style="">
+                                <p class="done4">@lang('lang.Sold')</p>
+                                </div>
+                            @else
+                                
+                            @endif
+                            @if ($realestate->status=="pending")
+                            <div class="done">
+                                <img class="done2" src="{{ asset('photo/done3.png') }}" alt="" style="">
+                                <p>@lang('lang.Reserved')</p>
+                                </div>
+                            @else
+                                
+                            @endif
                                     <div class="left-image">
                                     <img src="{{asset('images/'.$realestate->image_path.'/cover.jpg')}}" alt="">
 
                                     </div>
                                     <div class="right-content align-self-center">
                                     <a href="#"><h4>{{ __('lang.' .  $realestate->property_type) }}</h4></a>
-                                    <h6>by: {{$realestate->user_id}}</h6>
+                                    <h6>@lang('lang.by') : @lang('lang.Agent')</h6>
                                     <ul class="rate">
                                         <li><i class="fa fa-star-o"></i></li>
                                         <li><i class="fa fa-star-o"></i></li>
@@ -175,7 +231,7 @@
                                         <li><img src="photo/listing-icon-02.png" alt=""> {{$realestate->number_of_rooms}} @lang('lang.Rooms')</li>
                                         <li><img src="photo/listing-icon-03.png" alt=""> {{$realestate->number_of_path_rooms}} @lang('lang.pathrooms')</li>
                                     </ul>
-                                    <div class="main-white-button">
+                                    <div class="main-white-button icoon">
                                         <div class="content">
                                             <a href="{{route('details',$realestate->id)}}" class="reserve"><i class="fa fa-eye"></i>@lang('lang.view') @lang('lang.details')</a>
                                                 </div>
