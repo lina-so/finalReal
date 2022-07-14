@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://key-in-click.herokuapp.com'),
+    'url' => env('APP_URL', 'http://key-in-click.herokuapp.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
